@@ -2,7 +2,13 @@ import React from "react";
 import "./Track.css";
 
 class Track extends React.Component {
-  renderAction() {}
+  renderAction() {
+    return (
+      <button className="Track-action" isRemoval={isRemoval}>
+        {isRemoval ? "-" : "+"}
+      </button>
+    );
+  }
 
   render() {
     return (
@@ -13,7 +19,7 @@ class Track extends React.Component {
             {/* track artist will go here */} | {/* track album will go here */}
           </p>
         </div>
-        <button className="Track-action">{/* + or - will go here */}</button>
+        <this.renderAction />
       </div>
     );
   }
