@@ -4,7 +4,7 @@ import "./SearchResults.css";
 class SearchResults extends React.Component {
   render() {
     return (
-      <div className="SearchResults">
+      <div className="SearchResults" searchResults={this.state.searchResults}>
         <h2>Results</h2>
         {/* Add a TrackList component */}
       </div>
