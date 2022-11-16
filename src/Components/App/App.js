@@ -1,6 +1,6 @@
 import React from "react";
-import SearchBar from "../SearchBar/SearchBar.js";
-import SearchResults from "../SearchResults/SearchResults.js";
+import SearchBar from "../SearchBar/SearchBar";
+import SearchResults from "../SearchResults/SearchResults";
 import "./App.css";
 
 class App extends React.Component {
