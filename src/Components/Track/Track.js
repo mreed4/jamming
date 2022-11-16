@@ -19,6 +19,7 @@ class Track extends React.Component {
             {/* track artist will go here */} | {/* track album will go here */}
           </p>
         </div>
+        {this.renderAction()}
       </div>
     );
   }
