@@ -1,4 +1,5 @@
 import React from "react";
+import SearchResults from "../SearchResults/SearchResults";
 import "./App.css";
 
 class App extends React.Component {
@@ -13,10 +14,10 @@ class App extends React.Component {
           Ja<span className="highlight">mmm</span>ing
         </h1>
         <div className="App">
-          {/* Add a SearchBar component */}
+          {/* <SearchBar /> */}
           <div className="App-playlist"></div>
-          {/* Add a SearchResults component */}
-          {/* Add a Playlist component */}
+          {/* <SearchResults /> */}
+          {/* <Playlist /> */}
         </div>
       </div>
     );
