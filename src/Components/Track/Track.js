@@ -3,12 +3,7 @@ import "./Track.css";
 
 class Track extends React.Component {
   renderAction() {
-    let isRemoval = true;
-    return (
-      <button className="Track-action" isRemoval={isRemoval}>
-        {isRemoval ? "+" : "-"}
-      </button>
-    );
+    return this.props.isRemoval ? <button>-</button> : <button>+</button>;
   }
 
   render() {
@@ -20,7 +15,6 @@ class Track extends React.Component {
             {/* track artist will go here */} | {/* track album will go here */}
           </p>
         </div>
-        <this.renderAction />
       </div>
     );
   }
