@@ -1,12 +1,13 @@
 import React from "react";
-import SearchResults from "../SearchResults/SearchResults";
+import SearchBar from "../SearchBar/SearchBar.js";
+import SearchResults from "../SearchResults/SearchResults.js";
 import "./App.css";
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state.searchResults = "Search";
-  }
+  // constructor(props) {
+  //   super(props);
+  //   this.state.searchResults = "Search";
+  // }
   render() {
     return (
       <div>
@@ -14,9 +15,9 @@ class App extends React.Component {
           Ja<span className="highlight">mmm</span>ing
         </h1>
         <div className="App">
-          {/* <SearchBar /> */}
+          <SearchBar />
           <div className="App-playlist"></div>
-          {/* <SearchResults /> */}
+          <SearchResults />
           {/* <Playlist /> */}
         </div>
       </div>
