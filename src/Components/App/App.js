@@ -52,6 +52,7 @@ class App extends React.Component {
   }
 
   savePlaylist() {
+    alert("Correctly linked");
     const trackUris = this.state.playlistTracks.map((track) => track.uri);
   }
 
