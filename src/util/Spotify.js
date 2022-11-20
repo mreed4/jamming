@@ -1,3 +1,6 @@
+const config = require("../../config");
+const clientId = config.key;
+const redirectUri = "http://localhost:3000/";
 let accessToken;
 
 const Spotify = {
