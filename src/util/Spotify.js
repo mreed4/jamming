@@ -1,6 +1,6 @@
-import Config from "../config";
+// import Config from "../config";
 
-const clientId = Config.key;
+const clientId = "14f55140c74e415b9c3da413f73df8ee";
 const redirectUri = "http://localhost:3000/";
 
 let accessToken;
