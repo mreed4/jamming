@@ -1,6 +1,8 @@
-const config = require("../../config");
-const clientId = config.key;
+import Config from "../config";
+
+const clientId = Config.key;
 const redirectUri = "http://localhost:3000/";
+
 let accessToken;
 
 const Spotify = {
