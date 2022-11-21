@@ -4,6 +4,10 @@
   border-bottom: 1px solid rgba(256, 256, 256, 0.8);
 }
 
+.Track-albumArt {
+  padding-right: 0.5rem;
+}
+
 .Track-action {
   cursor: pointer;
   padding: 0.5rem;
