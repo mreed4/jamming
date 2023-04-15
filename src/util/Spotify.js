@@ -1,4 +1,4 @@
-import Config from "../config";
+import Config from "./config";
 
 const clientId = Config.key;
 const redirectUri = "https://madare-jamming.surge.sh";
