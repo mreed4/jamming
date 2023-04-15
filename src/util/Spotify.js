@@ -8,18 +8,30 @@ const Spotify = {
     const headers = {
       "Content-Type": "application/x-www-form-urlencoded",
     };
+
     return fetch(url, { method: "POST", body, headers })
       .then((response) => response.json())
       .then((data) => {
-        if (data.access_token) {
-          console.log(data);
+        if (data) {
+          // console.log(data.access_token);
           return data.access_token;
         }
         throw new Error("Request for access token failed");
       });
   },
 
-  search(term) {},
-}; // Object
+  search(searchTerm) {
+    Spotify.requestAccessToken().then((ACCESS_TOKEN) => {
+      const url = `https://api.spotify.com/v1/search?type=track,artist,album&q=${searchTerm}&limit=50`;
+      const headers = { Authorization: `Bearer ${ACCESS_TOKEN}` };
+
+      return fetch(url, { headers })
+        .then((response) => response.json())
+        .then((data) => {
+          console.log(data);
+        });
+    });
+  },
+};
 
 export default Spotify;

@@ -32,7 +32,6 @@ export default function App() {
   }
 
   function savePlaylist() {
-    // alert("Correctly linked");
     const trackUris = playlistTracks.map((track) => track.uri);
     Spotify.savePlaylist(playlistName, trackUris).then(() => {
       setPlaylistName(playlistName);
@@ -40,14 +39,15 @@ export default function App() {
     });
   }
 
-  function handleSearch(term) {
-    Spotify.requestAccessToken();
+  function onSearch(term) {
+    Spotify.search(term);
   }
+
   return (
     <main>
       <h1>Jammming</h1>
       <div>
-        <SearchBar onSearch={handleSearch} />
+        <SearchBar onSearch={onSearch} />
         <div>
           <SearchResults searchResults={searchResults} onAdd={addTrack} />
           <Playlist
