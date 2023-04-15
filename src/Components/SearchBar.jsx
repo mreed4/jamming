@@ -1,20 +1,13 @@
-import { useState } from "react";
+import { useContext } from "react";
+import { AppContext } from "../AppContext";
 
-export default function SearchBar({ onSearch }) {
-  const [term, setTerm] = useState("");
-
-  function handleSearch() {
-    onSearch(term);
-  }
-
-  function handleTermChange(e) {
-    setTerm(e.target.value);
-  }
+export default function SearchBar() {
+  const { handleSearchButton, handleSearchTermChange, searchTerm } = useContext(AppContext);
 
   return (
     <div>
-      <input placeholder="Enter A Song, Album, or Artist" value={term} onChange={handleTermChange} />
-      <button onClick={handleSearch}>SEARCH</button>
+      <input placeholder="Enter A Song, Album, or Artist" value={searchTerm} onChange={handleSearchTermChange} />
+      <button onClick={handleSearchButton}>SEARCH</button>
     </div>
   );
 }
