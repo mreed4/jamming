@@ -1,7 +1,4 @@
-import "./Playlist.css";
-
-import React from "react";
-import TrackList from "../TrackList/TrackList";
+import TrackList from "./TrackList";
 
 class Playlist extends React.Component {
   constructor(props) {

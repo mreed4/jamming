@@ -1,7 +1,4 @@
-import "./TrackList.css";
-
-import React from "react";
-import Track from "../Track/Track";
+import Track from "./Track";
 
 class TrackList extends React.Component {
   render() {
