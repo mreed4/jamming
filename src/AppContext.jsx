@@ -40,30 +40,37 @@ function AppProvider({ children }) {
     });
   }
 
-  function onSearch(term) {
-    Spotify.search(term);
-  }
-
-  function handleSearchButton() {
-    onSearch(searchTerm);
+  function handleSearchButton(searchTerm) {
+    Spotify.search(searchTerm);
+    setSearchTerm("");
   }
 
   function handleSearchTermChange(e) {
     setSearchTerm(e.target.value);
   }
 
+  function handleFormSubmit(e) {
+    e.preventDefault();
+    Spotify.search(searchTerm);
+    setSearchTerm("");
+  }
+
   const value = {
     searchResults,
+    setSearchResults,
     playlistName,
+    setPlaylistName,
     playlistTracks,
+    setPlaylistTracks,
     searchTerm,
+    setSearchTerm,
     addTrack,
     removeTrack,
     updatePlaylistName,
     savePlaylist,
-    onSearch,
     handleSearchButton,
     handleSearchTermChange,
+    handleFormSubmit,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
