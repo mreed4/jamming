@@ -4,10 +4,10 @@ import Spotify from "./util/Spotify";
 const AppContext = createContext();
 
 function AppProvider({ children }) {
-  const [searchResults, setSearchResults] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [searchResults, setSearchResults] = useState({});
   const [playlistName, setPlaylistName] = useState("My Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
-  const [searchTerm, setSearchTerm] = useState("");
 
   function addTrack(track) {
     let tracks = playlistTracks;
@@ -40,35 +40,28 @@ function AppProvider({ children }) {
     });
   }
 
-  function handleSearchButton(searchTerm) {
-    Spotify.search(searchTerm);
-    setSearchTerm("");
-  }
-
   function handleSearchTermChange(e) {
     setSearchTerm(e.target.value);
   }
 
   function handleFormSubmit(e) {
     e.preventDefault();
-    Spotify.search(searchTerm);
+    Spotify.search(searchTerm).then((data) => {
+      console.log(data);
+      setSearchResults(data);
+    });
     setSearchTerm("");
   }
 
   const value = {
-    searchResults,
-    setSearchResults,
-    playlistName,
-    setPlaylistName,
-    playlistTracks,
-    setPlaylistTracks,
     searchTerm,
-    setSearchTerm,
+    searchResults,
+    playlistName,
+    playlistTracks,
     addTrack,
     removeTrack,
     updatePlaylistName,
     savePlaylist,
-    handleSearchButton,
     handleSearchTermChange,
     handleFormSubmit,
   };
