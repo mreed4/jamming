@@ -20,15 +20,19 @@ const Spotify = {
       });
   },
 
-  search(searchTerm) {
-    Spotify.requestAccessToken().then((ACCESS_TOKEN) => {
-      const url = `https://api.spotify.com/v1/search?type=track,artist,album&q=${searchTerm}&limit=50`;
+  search(term) {
+    return Spotify.requestAccessToken().then((ACCESS_TOKEN) => {
+      const url = `https://api.spotify.com/v1/search?type=track&q=${term}`;
       const headers = { Authorization: `Bearer ${ACCESS_TOKEN}` };
 
       return fetch(url, { headers })
         .then((response) => response.json())
         .then((data) => {
-          console.log(data);
+          // console.log(data);
+          if (!data) {
+            return {};
+          }
+          return data;
         });
     });
   },
