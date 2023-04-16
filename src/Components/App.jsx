@@ -8,12 +8,10 @@ export default function App() {
     <AppProvider>
       <main>
         <h1>Audiofile</h1>
+        <SearchBar />
         <div>
-          <SearchBar />
-          <div>
-            {/* <SearchResults /> */}
-            {/* <Playlist /> */}
-          </div>
+          <SearchResults />
+          {/* <Playlist /> */}
         </div>
       </main>
     </AppProvider>
