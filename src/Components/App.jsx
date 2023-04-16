@@ -7,7 +7,7 @@ export default function App() {
   return (
     <AppProvider>
       <main>
-        <h1>Jammming</h1>
+        <h1>Audiofile</h1>
         <div>
           <SearchBar />
           <div>
