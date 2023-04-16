@@ -8,7 +8,7 @@ export default function SearchBar() {
     <div>
       <form onSubmit={handleFormSubmit}>
         <input placeholder="Enter A Song, Album, or Artist" value={searchTerm} onChange={handleSearchTermChange} />
-        <button>Search</button>
+        <button type="submit">Search</button>
       </form>
     </div>
   );
