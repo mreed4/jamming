@@ -1,4 +1,4 @@
-import TrackList from "./TrackList";
+import ItemList from "./ItemList";
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
 
@@ -8,22 +8,14 @@ export default function SearchResults() {
 
   return (
     Object.keys(searchResults).length > 0 && (
-      <div>
+      <section id="search-results">
         <h2>Results</h2>
-        <h3>{Object.keys(searchResults)[0][0].toUpperCase() + Object.keys(searchResults)[0].slice(1)}</h3>
-        <ol>
-          {tracks.items.map((track) => {
-            return (
-              <li key={track.uri}>
-                <img src={track.album.images[1].url} alt={track.name} className="album" />
-                {track.name} <br />
-                {track.artists.map((artist) => artist.name).join(", ")} <br />
-                {track.album.name} <br />
-              </li>
-            );
-          })}
-        </ol>
-      </div>
+        <div id="item-lists">
+          <ItemList items={tracks.items} itemType="tracks" />
+          <ItemList items={artists.items} itemType="artists" />
+          <ItemList items={albums.items} itemType="albums" />
+        </div>
+      </section>
     )
   );
 }
