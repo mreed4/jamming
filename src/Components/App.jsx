@@ -9,10 +9,8 @@ export default function App() {
       <main>
         <h1>Audiofile</h1>
         <SearchBar />
-        <div>
-          <SearchResults />
-          {/* <Playlist /> */}
-        </div>
+        <SearchResults />
+        {/* <Playlist /> */}
       </main>
     </AppProvider>
   );
