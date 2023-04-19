@@ -1,4 +1,4 @@
-import TrackList from "./TrackList";
+// import TrackList from "./TrackList";
 import React from "react";
 
 class Playlist extends React.Component {
@@ -16,7 +16,7 @@ class Playlist extends React.Component {
     return (
       <div>
         <input defaultValue={this.props.playlistName} onChange={this.handleNameChange} />
-        <TrackList tracks={this.props.playlistTracks} onRemove={this.props.onRemove} isRemoval={true} />
+        {/* <TrackList tracks={this.props.playlistTracks} onRemove={this.props.onRemove} isRemoval={true} /> */}
         <button onClick={this.props.onSave}>SAVE TO SPOTIFY</button>
       </div>
     );
