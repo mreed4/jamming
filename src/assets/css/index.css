@@ -1,13 +1,17 @@
 :root {
   line-height: 1.5;
   font-size: 20px;
-  font-family: "Open Sans", sans-serif;
+  font-family: sans-serif;
 
   color-scheme: light dark;
 
   background-color: hsl(0, 0%, 18%);
   color: #191414;
   background-attachment: fixed;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -23,9 +27,27 @@ a {
   color: inherit;
 }
 
-#item-lists {
+main {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.item-list:not(#tracks-list) > ol {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
+}
+
+#tracks-list > ol li {
+  padding: 1rem 0;
+  border-bottom: 2px solid hsla(0, 11.1%, 8.8%, 0.15);
+}
+
+#tracks-list > ol li:last-child {
+  border-bottom-color: transparent;
 }
 
 .album-image {
@@ -33,7 +55,7 @@ a {
   margin: 0;
 }
 
-.artist > div:first-child {
+.artist {
   width: 300px;
   height: 300px;
   overflow: hidden;
@@ -46,4 +68,8 @@ a {
   margin: 0;
   object-fit: cover;
   width: 100%;
+}
+
+.list-image {
+  margin: 0.5rem;
 }
