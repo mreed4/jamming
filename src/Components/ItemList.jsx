@@ -1,9 +1,10 @@
 import Item from "./Item";
+import Helpers from "../util/Helpers";
 
 export default function ItemList({ items, itemType }) {
   return (
-    <article id={`${itemType}-list`}>
-      <h3>{itemType}</h3>
+    <article id={`${itemType}-list`} className="item-list">
+      <h3>{Helpers.toProperCase(itemType)}</h3>
       <hr />
       <ol>
         {items.map((item) => {

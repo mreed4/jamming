@@ -35,18 +35,15 @@ export default function Item({ item, itemType }) {
 
   if (itemType === "artist") {
     return (
-      <div className="artist">
-        <div>
-          <img src={item.images[0]?.url ?? "https://placehold.co/600@2x?text=No+Image"} className="artist-image" />
-        </div>
-        <h3>{item.name}</h3>
+      <div className="artist list-image">
+        <img src={item.images[0]?.url ?? "https://placehold.co/600@2x?text=No+Image"} className="artist-image" />
       </div>
     );
   }
 
   if (itemType === "album") {
     return (
-      <div className="album">
+      <div className="album list-image">
         <img src={item.images[1].url} className="album-image" />
       </div>
     );

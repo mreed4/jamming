@@ -6,6 +6,7 @@
   color-scheme: light dark;
 
   background-color: hsl(0, 0%, 18%);
+  background-color: #1db954;
   color: #191414;
   background-attachment: fixed;
 }
@@ -19,8 +20,9 @@ html {
 }
 
 body {
-  background-color: #1db954;
+  /* background-color: #1db954; */
   min-height: 100vh;
+  margin: 0;
 }
 
 a {
