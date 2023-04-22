@@ -1,22 +1,19 @@
 import ItemList from "./ItemList";
+import { Link, Outlet } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
 
 export default function SearchResults() {
-  const { searchResults } = useContext(AppContext);
-
   return (
-    Object.keys(searchResults).length > 0 && (
-      <section id="search-results">
-        <h2>Results</h2>
-        <div id="item-lists">
-          {Object.keys(searchResults)
-            .reverse()
-            .map((key) => {
-              return <ItemList key={key} items={searchResults[key].items} itemType={key} />;
-            })}
-        </div>
-      </section>
-    )
+    <section id="search-results">
+      <h2>Results</h2>
+      <Link to="/">Back</Link>
+      <Link to="tracks">Tracks</Link>
+      <Link to="artists">Artists</Link>
+      <Link to="albums">Albums</Link>
+      <div id="item-lists">
+        <Outlet />
+      </div>
+    </section>
   );
 }
