@@ -44,8 +44,7 @@ function AppProvider({ children }) {
     setSearchTerm(e.target.value);
   }
 
-  function handleFormSubmit(e) {
-    e.preventDefault();
+  function handleFormSubmit() {
     Spotify.search(searchTerm).then((data) => {
       console.log(data);
       setSearchResults(data);
