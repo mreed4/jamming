@@ -46,7 +46,7 @@ function AppProvider({ children }) {
     setSearchTerm(e.target.value);
   }
 
-  function handleFormSubmit() {
+  function searchSpotify() {
     Spotify.search(searchTerm).then((data) => {
       console.log(data);
       setSearchResults(data);
@@ -70,7 +70,7 @@ function AppProvider({ children }) {
     updatePlaylistName,
     savePlaylist,
     handleSearchTermChange,
-    handleFormSubmit,
+    searchSpotify,
     getClassName,
   };
 

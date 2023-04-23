@@ -1,9 +1,9 @@
-import SearchBar from "./SearchBar";
+import SearchForm from "./SearchForm";
 
 export default function SearchPage() {
   return (
     <section id="search-bar">
-      <SearchBar />
+      <SearchForm />
     </section>
   );
 }

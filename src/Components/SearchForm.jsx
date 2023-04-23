@@ -2,14 +2,14 @@ import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { AppContext } from "../AppContext";
 
-export default function SearchBar() {
-  const { handleSearchTermChange, handleFormSubmit, searchTerm } = useContext(AppContext);
+export default function SearchForm() {
+  const { handleSearchTermChange, searchSpotify, searchTerm } = useContext(AppContext);
 
   const navigate = useNavigate();
 
   function handleSearch(e) {
     e.preventDefault();
-    handleFormSubmit();
+    searchSpotify(); // This will actually search for the term
     navigate("/results/tracks");
   }
 

@@ -1,6 +1,6 @@
 import ItemList from "./ItemList";
 import { NavLink, Link, Outlet } from "react-router-dom";
-import SearchBar from "./SearchBar";
+import SearchForm from "./SearchForm";
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
 import Helpers from "../util/Helpers";
@@ -11,7 +11,7 @@ export default function ResultsPage() {
 
   return (
     <>
-      <SearchBar />
+      <SearchForm />
       <section id="search-results">
         <h2>Results</h2>
         <Link to="/">Back</Link>
