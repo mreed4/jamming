@@ -8,6 +8,7 @@ function AppProvider({ children }) {
   const [searchResults, setSearchResults] = useState({});
   const [playlistName, setPlaylistName] = useState("My Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
+  const [searchTermPersist, setSearchTermPersist] = useState("");
 
   const resultsArray = Object.keys(searchResults).reverse();
 
@@ -51,6 +52,7 @@ function AppProvider({ children }) {
       console.log(data);
       setSearchResults(data);
     });
+    setSearchTermPersist(searchTerm);
     setSearchTerm("");
     setSearchResults({});
   }
@@ -65,6 +67,7 @@ function AppProvider({ children }) {
     playlistName,
     playlistTracks,
     resultsArray,
+    searchTermPersist,
     addTrack,
     removeTrack,
     updatePlaylistName,

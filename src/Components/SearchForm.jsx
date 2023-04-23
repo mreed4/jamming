@@ -15,8 +15,10 @@ export default function SearchForm() {
 
   return (
     <form onSubmit={handleSearch}>
-      <input placeholder="Enter A Song, Album, or Artist" value={searchTerm} onChange={handleSearchTermChange} />
-      <button type="submit">Search</button>
+      <input placeholder="Enter A Song, Album, or Artist" value={searchTerm} onChange={handleSearchTermChange} autoFocus />
+      <button type="submit" disabled={!searchTerm}>
+        <i className="fa-solid fa-magnifying-glass"></i>
+      </button>
     </form>
   );
 }

@@ -18,10 +18,18 @@ export default function App() {
           <Route path="/" element={<SearchPage />} />
           {resultsArray.length > 0 ? (
             <Route path="/results" element={<ResultsPage />}>
-              {/* <Route path="" element={<LoadingPage />} /> */}
               {resultsArray.reverse().map((key) => {
                 return <Route key={key} path={key} element={<ItemList items={searchResults[key].items} itemTypes={key} />} />;
               })}
+              {/* 
+
+              The above array.map is the equivalent of hardcoding the following:
+
+              <Route path="tracks" element={<ItemList items={searchResults.tracks.items} itemTypes="tracks" />} />
+              <Route path="artists" element={<ItemList items={searchResults.artists.items} itemTypes="artists" />} />
+              <Route path="albums" element={<ItemList items={searchResults.albums.items} itemTypes="albums" />} />
+
+               */}
             </Route>
           ) : (
             <Route path="/results/tracks" element={<LoadingPage />} />

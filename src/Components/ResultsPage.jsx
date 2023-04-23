@@ -6,16 +6,15 @@ import { AppContext } from "../AppContext";
 import Helpers from "../util/Helpers";
 
 export default function ResultsPage() {
-  const { getClassName, resultsArray } = useContext(AppContext);
-  const [artists, albums, tracks] = resultsArray;
+  const { getClassName, resultsArray, searchTermPersist } = useContext(AppContext);
 
   return (
     <>
       <SearchForm />
-      <section id="search-results">
-        <h2>Results</h2>
+      <section id="results-page">
+        <h2>Results for "{searchTermPersist}"</h2>
         <Link to="/">Back</Link>
-        <nav>
+        <nav id="results-nav">
           <ul>
             {resultsArray.length > 0 &&
               resultsArray.map((key) => {

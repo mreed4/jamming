@@ -52,16 +52,91 @@ main {
   border-bottom-color: transparent;
 }
 
-#search-results nav ul {
+#results-page nav ul {
   text-decoration: none;
 }
 
-#search-results nav a {
+#results-page nav a {
   text-decoration: none;
 }
 
-#search-results nav a.active {
+#results-page nav a.active {
   font-weight: bold;
+}
+
+#search-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#search-page form {
+  margin-top: 15rem;
+}
+
+#search-page form input {
+  font-size: 2rem;
+  padding: 0.5rem;
+  border: none;
+  border-radius: 0.25rem;
+  outline: none;
+  width: 30rem;
+  background-color: hsla(0, 11.1%, 8.8%, 0.15);
+  background-color: transparent;
+  transition: background-color 150ms ease-in-out;
+}
+
+#search-page form input:focus {
+  background-color: hsla(0, 11.1%, 8.8%, 0.15);
+  /* outline: 3px solid yellow; */
+}
+
+#search-page form input::placeholder {
+  color: hsla(0, 11.1%, 8.8%, 0.25);
+  transition: color 175ms ease-in-out;
+}
+
+#search-page form input:focus::placeholder {
+  color: hsla(0, 11.1%, 8.8%, 0.1);
+}
+
+#search-page form button {
+  font-size: 2rem;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border: none;
+  border-radius: 0.25rem;
+  outline: none;
+  background-color: transparent;
+  cursor: pointer;
+  color: #191414;
+  transition: color 150ms ease-in-out;
+}
+
+#search-page form button:disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#search-page form button:focus {
+  color: white;
+}
+
+#results-nav ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  list-style: none;
+  margin: 1rem 0;
+  padding: 0;
+}
+
+#results-nav ul li {
+  margin: 0 1rem;
+}
+
+#results-nav ul li:first-child {
+  margin-left: 0;
 }
 
 .album-image {
