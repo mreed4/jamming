@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
 import ItemList from "./ItemList";
@@ -13,7 +13,9 @@ export default function App() {
   return (
     <Router>
       <main>
-        <h1>Audiofile</h1>
+        <h1 id="site-title">
+          <Link to="/">Audiofile</Link>
+        </h1>
         <Routes>
           <Route path="/" element={<SearchPage />} />
           {resultsArray.length > 0 ? (

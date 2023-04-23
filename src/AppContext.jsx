@@ -61,6 +61,25 @@ function AppProvider({ children }) {
     return isActive ? "active" : "";
   }
 
+  function parseItemTitle(title) {
+    if (title.includes(" - ")) {
+      let parts = title.split(" - ");
+      return parts.map((part, i) => {
+        const key = `${part}-${i}`;
+        if (i === 0) {
+          return <span key={key}>{part}</span>;
+        } else {
+          return (
+            <span key={key} className="track-title-tags">
+              {part}
+            </span>
+          );
+        }
+      });
+    }
+    return title;
+  }
+
   const value = {
     searchTerm,
     searchResults,
@@ -75,6 +94,7 @@ function AppProvider({ children }) {
     handleSearchTermChange,
     searchSpotify,
     getClassName,
+    parseItemTitle,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

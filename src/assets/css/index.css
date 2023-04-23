@@ -5,9 +5,10 @@
 
   color-scheme: light dark;
 
-  background-color: hsl(0, 0%, 18%);
   background-color: #1db954;
+  /* background-color: #191414; */
   color: #191414;
+  /* color: #1db954; */
   background-attachment: fixed;
 }
 
@@ -27,6 +28,7 @@ body {
 
 a {
   color: inherit;
+  text-decoration: none;
 }
 
 main {
@@ -34,13 +36,30 @@ main {
   margin: 0 auto;
 }
 
-.item-list:not(#tracks-list) > ol {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  margin: 0;
-  padding: 0;
-  justify-content: center;
+h1 {
+  font-size: 3rem;
+  margin: 1.5rem 0;
+}
+
+h2 {
+  font-size: 2rem;
+  margin: 1rem 0;
+}
+
+h3 {
+  font-size: 1.5rem;
+  margin: 0.5rem 0;
+}
+
+#results-nav a {
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 150ms ease-in-out, color 300ms ease-in-out;
+}
+
+#results-nav a.active {
+  background-color: #191414;
+  color: white;
 }
 
 #tracks-list > ol li {
@@ -50,18 +69,6 @@ main {
 
 #tracks-list > ol li:last-child {
   border-bottom-color: transparent;
-}
-
-#results-page nav ul {
-  text-decoration: none;
-}
-
-#results-page nav a {
-  text-decoration: none;
-}
-
-#results-page nav a.active {
-  font-weight: bold;
 }
 
 #search-page {
@@ -80,14 +87,16 @@ main {
   border: none;
   border-radius: 0.25rem;
   outline: none;
+  color: white;
   width: 30rem;
   background-color: hsla(0, 11.1%, 8.8%, 0.15);
   background-color: transparent;
-  transition: background-color 150ms ease-in-out;
+  transition: background-color 150ms ease-in-out, scale 75ms ease-in-out;
 }
 
 #search-page form input:focus {
   background-color: hsla(0, 11.1%, 8.8%, 0.15);
+  transform: scale(1.05);
   /* outline: 3px solid yellow; */
 }
 
@@ -110,12 +119,12 @@ main {
   background-color: transparent;
   cursor: pointer;
   color: #191414;
-  transition: color 150ms ease-in-out;
+  transition: color 150ms ease-in-out, opacity 150ms ease-in-out;
 }
 
 #search-page form button:disabled {
-  opacity: 0;
   pointer-events: none;
+  opacity: 0.1;
 }
 
 #search-page form button:focus {
@@ -127,16 +136,21 @@ main {
   flex-direction: row;
   justify-content: left;
   list-style: none;
-  margin: 1rem 0;
+  margin: 2rem 0;
   padding: 0;
 }
 
 #results-nav ul li {
   margin: 0 1rem;
+  font-size: 1.5rem;
 }
 
 #results-nav ul li:first-child {
   margin-left: 0;
+}
+
+.italic {
+  font-style: italic;
 }
 
 .album-image {
@@ -144,7 +158,46 @@ main {
   margin: 0;
 }
 
-.artist {
+.album-image.small {
+  width: 125px;
+  height: 125px;
+  object-fit: cover;
+}
+
+.track-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 75ms ease-in-out, transform 150ms ease-in-out;
+}
+
+#tracks-list > ol li:hover .track-item {
+  background-color: hsla(0, 11.1%, 100%, 0.15);
+  transform: scale(1.025);
+}
+
+.track-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+  margin-left: 1rem;
+}
+
+.track-info h3 {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+.track-info p {
+  margin: 0.25rem 0;
+}
+
+.artist-item {
   width: 300px;
   height: 300px;
   overflow: hidden;
@@ -161,4 +214,27 @@ main {
 
 .list-image {
   margin: 0.5rem;
+}
+
+.dim {
+  opacity: 0.6;
+}
+
+.track-title-tags {
+  display: inline-block;
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  padding: 0.25rem 0.5rem;
+  background-color: hsla(0, 11.1%, 8.8%, 0.35);
+  color: white;
+  border-radius: 0.25rem;
+}
+
+.item-list:not(#tracks-list) > ol {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
 }

@@ -5,8 +5,6 @@ export default function ItemList({ items, itemTypes }) {
   // console.log(items);
   return (
     <article id={`${itemTypes}-list`} className="item-list">
-      <h3>{Helpers.toProperCase(itemTypes)}</h3>
-      <hr />
       <ol>
         {items.map((item) => {
           // console.log(item);

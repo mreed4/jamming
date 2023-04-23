@@ -12,8 +12,8 @@ export default function ResultsPage() {
     <>
       <SearchForm />
       <section id="results-page">
-        <h2>Results for "{searchTermPersist}"</h2>
-        <Link to="/">Back</Link>
+        <h2 className="italic">Results for "{searchTermPersist}"</h2>
+        {/* <Link to="/">Back</Link> */}
         <nav id="results-nav">
           <ul>
             {resultsArray.length > 0 &&
