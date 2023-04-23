@@ -9,6 +9,8 @@ function AppProvider({ children }) {
   const [playlistName, setPlaylistName] = useState("My Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
 
+  const resultsArray = Object.keys(searchResults).reverse();
+
   function addTrack(track) {
     let tracks = playlistTracks;
 
@@ -50,6 +52,11 @@ function AppProvider({ children }) {
       setSearchResults(data);
     });
     setSearchTerm("");
+    setSearchResults({});
+  }
+
+  function getClassName({ isActive }) {
+    return isActive ? "active" : "";
   }
 
   const value = {
@@ -57,12 +64,14 @@ function AppProvider({ children }) {
     searchResults,
     playlistName,
     playlistTracks,
+    resultsArray,
     addTrack,
     removeTrack,
     updatePlaylistName,
     savePlaylist,
     handleSearchTermChange,
     handleFormSubmit,
+    getClassName,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

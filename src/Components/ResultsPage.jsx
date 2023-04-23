@@ -1,0 +1,38 @@
+import ItemList from "./ItemList";
+import { NavLink, Link, Outlet } from "react-router-dom";
+import SearchBar from "./SearchBar";
+import { useContext } from "react";
+import { AppContext } from "../AppContext";
+import Helpers from "../util/Helpers";
+
+export default function ResultsPage() {
+  const { getClassName, resultsArray } = useContext(AppContext);
+  const [artists, albums, tracks] = resultsArray;
+
+  return (
+    <>
+      <SearchBar />
+      <section id="search-results">
+        <h2>Results</h2>
+        <Link to="/">Back</Link>
+        <nav>
+          <ul>
+            {resultsArray.length > 0 &&
+              resultsArray.map((key) => {
+                return (
+                  <li key={key}>
+                    <NavLink to={key} className={getClassName}>
+                      {Helpers.toProperCase(key)}
+                    </NavLink>
+                  </li>
+                );
+              })}
+          </ul>
+        </nav>
+        <div id="item-lists">
+          <Outlet />
+        </div>
+      </section>
+    </>
+  );
+}

@@ -10,15 +10,13 @@ export default function SearchBar() {
   function handleSearch(e) {
     e.preventDefault();
     handleFormSubmit();
-    navigate("/results");
+    navigate("/results/tracks");
   }
 
   return (
-    <section id="search-bar">
-      <form onSubmit={handleSearch}>
-        <input placeholder="Enter A Song, Album, or Artist" value={searchTerm} onChange={handleSearchTermChange} />
-        <button type="submit">Search</button>
-      </form>
-    </section>
+    <form onSubmit={handleSearch}>
+      <input placeholder="Enter A Song, Album, or Artist" value={searchTerm} onChange={handleSearchTermChange} />
+      <button type="submit">Search</button>
+    </form>
   );
 }

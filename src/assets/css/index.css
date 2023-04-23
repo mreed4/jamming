@@ -52,6 +52,18 @@ main {
   border-bottom-color: transparent;
 }
 
+#search-results nav ul {
+  text-decoration: none;
+}
+
+#search-results nav a {
+  text-decoration: none;
+}
+
+#search-results nav a.active {
+  font-weight: bold;
+}
+
 .album-image {
   display: block;
   margin: 0;
