@@ -10,6 +10,17 @@
   color: #191414;
   /* color: #1db954; */
   background-attachment: fixed;
+  transition: background-color 150ms ease-in-out, color 300ms ease-in-out;
+}
+
+:root:has(#loading-page) {
+  background-color: #191414;
+  color: #1db954;
+}
+
+:root:has(#search-page) {
+  background-size: cover;
+  overflow: hidden;
 }
 
 * {
@@ -78,7 +89,7 @@ h3 {
 }
 
 #search-page form {
-  margin-top: 15rem;
+  margin-top: 7rem;
 }
 
 #search-page form input {
@@ -90,12 +101,12 @@ h3 {
   color: white;
   width: 30rem;
   background-color: hsla(0, 11.1%, 8.8%, 0.15);
-  background-color: transparent;
+  /* background-color: transparent; */
   transition: background-color 150ms ease-in-out, scale 75ms ease-in-out;
 }
 
 #search-page form input:focus {
-  background-color: hsla(0, 11.1%, 8.8%, 0.15);
+  background-color: hsla(0, 11.1%, 8.8%, 0.25);
   transform: scale(1.05);
 }
 
@@ -184,6 +195,44 @@ h3 {
 #tracks-list > ol li:hover .track-item {
   background-color: hsla(0, 11.1%, 100%, 0.15);
   transform: scale(1.025);
+}
+
+#albums-list .album-item {
+  transition: transform 150ms ease-in-out;
+}
+
+#albums-list .album-item:hover {
+  transform: scale(1.075);
+}
+
+#albums-list .album-item .album-info {
+  margin: 0;
+  width: 300px;
+  height: 300px;
+  overflow-wrap: break-word;
+  position: absolute;
+  color: red;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
+  background-color: #191414;
+  padding: 1rem;
+  font-size: 1.75rem;
+  color: #f0edda;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+#albums-list .album-item:hover .album-info {
+  opacity: 1;
+}
+
+#albums-list .album-item .album-info > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .track-info {

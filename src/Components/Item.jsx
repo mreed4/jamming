@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext } from "../AppContext";
 
 export default function Item({ item, itemType }) {
-  const { parseItemTitle } = useContext(AppContext);
+  const { parseItemTitle, parseArtists } = useContext(AppContext);
   const placeholderImage = "https://placehold.co/600/191414/white@2x?text=No+Image";
 
   function renderAction() {
@@ -22,20 +22,13 @@ export default function Item({ item, itemType }) {
   }
 
   if (itemType === "track") {
+    const src = item.album.images[1]?.url ?? placeholderImage;
     return (
       <div className="track-item">
-        <img src={item.album.images[1]?.url ?? placeholderImage} className="album-image small" />
+        <img src={src} className="album-image small" />
         <div className="track-info">
           <h3>{parseItemTitle(item.name)}</h3>
-          <p className="italic dim">
-            {item.artists.map((artist) => {
-              return (
-                <span key={artist.id} className="artist-name">
-                  {artist.name}
-                </span>
-              );
-            })}
-          </p>
+          <p className="italic dim">{parseArtists(item.artists)}</p>
           <p className="italic dim">{item.album.name}</p>
         </div>
         {/* {this.renderAction()} */}
@@ -44,9 +37,10 @@ export default function Item({ item, itemType }) {
   }
 
   if (itemType === "artist") {
+    const src = item.images[0]?.url ?? placeholderImage;
     return (
       <div className="artist-item list-image">
-        <img src={item.images[0]?.url ?? placeholderImage} className="artist-image" />
+        <img src={src} className="artist-image" />
       </div>
     );
   }
@@ -54,7 +48,14 @@ export default function Item({ item, itemType }) {
   if (itemType === "album") {
     return (
       <div className="album-item list-image">
-        <img src={item.images[1].url} className="album-image" />
+        <div className="album-info">
+          <span>{item.name}</span>
+          <div>
+            <span>{parseArtists(item.artists)}</span>
+            <span>{item.release_date.slice(0, 4)}</span>
+          </div>
+        </div>
+        <img src={item.images[1].url} className="album-image" alt={item.name} title={item.name} />
       </div>
     );
   }

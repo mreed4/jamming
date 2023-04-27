@@ -80,6 +80,16 @@ function AppProvider({ children }) {
     return title;
   }
 
+  function parseArtists(artists) {
+    return artists.map((artist) => {
+      return (
+        <span key={artist.id} className="artist-name">
+          {artist.name}
+        </span>
+      );
+    });
+  }
+
   const value = {
     searchTerm,
     searchResults,
@@ -95,6 +105,7 @@ function AppProvider({ children }) {
     searchSpotify,
     getClassName,
     parseItemTitle,
+    parseArtists,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
