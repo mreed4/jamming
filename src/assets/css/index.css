@@ -216,7 +216,8 @@ h3 {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: #191414;
+  background-color: hsla(0, 11.1%, 8.8%, 0.75);
+  backdrop-filter: blur(10px);
   padding: 1rem;
   font-size: 1.75rem;
   color: #f0edda;
@@ -233,6 +234,22 @@ h3 {
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
+}
+
+#albums-list .multi-artist {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+#albums-list .artist-count {
+  margin-left: 0.75rem;
+  font-size: 1rem;
+  color: #191414;
+  background-color: #f0edda;
+  padding: 0.25rem;
+  border-radius: 0.25rem;
 }
 
 .track-info {

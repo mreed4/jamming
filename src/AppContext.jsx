@@ -80,14 +80,27 @@ function AppProvider({ children }) {
     return title;
   }
 
-  function parseArtists(artists) {
-    return artists.map((artist) => {
-      return (
-        <span key={artist.id} className="artist-name">
-          {artist.name}
-        </span>
-      );
-    });
+  function parseArtists(artists, itemType = "track") {
+    if (itemType === "track") {
+      return artists.map((artist) => {
+        return (
+          <span key={artist.id} className="artist-name">
+            {artist.name}
+          </span>
+        );
+      });
+    }
+
+    if (itemType === "album") {
+      if (artists.length > 1) {
+        return (
+          <>
+            <span>{artists[0].name}</span> <span className="artist-count">+{artists.length - 1}</span>
+          </>
+        );
+      }
+      return <>{artists[0].name}</>;
+    }
   }
 
   const value = {

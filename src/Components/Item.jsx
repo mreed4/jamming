@@ -28,7 +28,7 @@ export default function Item({ item, itemType }) {
         <img src={src} className="album-image small" />
         <div className="track-info">
           <h3>{parseItemTitle(item.name)}</h3>
-          <p className="italic dim">{parseArtists(item.artists)}</p>
+          <p className="italic dim">{parseArtists(item.artists, itemType)}</p>
           <p className="italic dim">{item.album.name}</p>
         </div>
         {/* {this.renderAction()} */}
@@ -51,8 +51,8 @@ export default function Item({ item, itemType }) {
         <div className="album-info">
           <span>{item.name}</span>
           <div>
-            <span>{parseArtists(item.artists)}</span>
-            <span>{item.release_date.slice(0, 4)}</span>
+            <span className={item.artists.length > 1 ? "multi-artist" : ""}>{parseArtists(item.artists, itemType)}</span>
+            <span className="italic">{item.release_date.slice(0, 4)}</span>
           </div>
         </div>
         <img src={item.images[1].url} className="album-image" alt={item.name} title={item.name} />
