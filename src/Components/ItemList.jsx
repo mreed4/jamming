@@ -1,5 +1,4 @@
 import Item from "./Item";
-import Helpers from "../util/Helpers";
 
 export default function ItemList({ items, itemTypes }) {
   // console.log(items);

@@ -3,10 +3,9 @@ import { NavLink, Link, Outlet } from "react-router-dom";
 import SearchForm from "./SearchForm";
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
-import Helpers from "../util/Helpers";
 
 export default function ResultsPage() {
-  const { getClassName, resultsArray, searchTermPersist } = useContext(AppContext);
+  const { getClassName, resultsArray, searchTermPersist, toProperCase } = useContext(AppContext);
 
   return (
     <>
@@ -21,7 +20,7 @@ export default function ResultsPage() {
                 return (
                   <li key={key}>
                     <NavLink to={key} className={getClassName}>
-                      {Helpers.toProperCase(key)}
+                      {toProperCase(key)}
                     </NavLink>
                   </li>
                 );
