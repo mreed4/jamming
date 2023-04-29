@@ -11,6 +11,8 @@
   /* color: #1db954; */
   background-attachment: fixed;
   transition: background-color 150ms ease-in-out, color 300ms ease-in-out;
+
+  user-select: none;
 }
 
 :root:has(#loading-page) {
@@ -217,12 +219,14 @@ h3 {
   justify-content: space-between;
   align-items: flex-start;
   background-color: hsla(0, 11.1%, 8.8%, 0.75);
-  backdrop-filter: blur(10px);
+  /* background-color: hsla(141.2, 72.9%, 32%, 0.65); */
+  backdrop-filter: blur(10px) brightness(125%);
   padding: 1rem;
   font-size: 1.75rem;
   color: #f0edda;
   opacity: 0;
   transition: opacity 150ms ease-in-out;
+  border: 0;
 }
 
 #albums-list .album-item:hover .album-info {
