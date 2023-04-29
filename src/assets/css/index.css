@@ -6,9 +6,9 @@
   color-scheme: light dark;
 
   background-color: #1db954;
-  /* background-color: #191414; */
+  background-color: hsl(0, 11.1%, 13.8%);
   color: #191414;
-  /* color: #1db954; */
+  color: #f0edda;
   background-attachment: fixed;
   transition: background-color 150ms ease-in-out, color 300ms ease-in-out;
 
@@ -16,8 +16,8 @@
 }
 
 :root:has(#loading-page) {
-  background-color: #191414;
-  color: #1db954;
+  /* background-color: #191414; */
+  /* color: #1db954; */
 }
 
 :root:has(#search-page) {
@@ -72,12 +72,15 @@ h3 {
 
 #results-nav a.active {
   background-color: #191414;
+  background-color: #f0edda;
   color: white;
+  color: #191414;
 }
 
 #tracks-list > ol li {
   padding: 1rem 0;
   border-bottom: 2px solid hsla(0, 11.1%, 8.8%, 0.15);
+  border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.1);
 }
 
 #tracks-list > ol li:last-child {
@@ -100,25 +103,29 @@ h3 {
   border: none;
   border-radius: 0.25rem;
   outline: none;
-  color: white;
+  color: #f0edda;
   width: 30rem;
   background-color: hsla(0, 11.1%, 8.8%, 0.15);
+  background-color: hsla(0, 11.1%, 100%, 0.05);
   /* background-color: transparent; */
   transition: background-color 150ms ease-in-out, scale 75ms ease-in-out;
 }
 
 #search-page form input:focus {
   background-color: hsla(0, 11.1%, 8.8%, 0.25);
+  background-color: hsla(0, 11.1%, 100%, 0.15);
   transform: scale(1.05);
 }
 
 #search-page form input::placeholder {
   color: hsla(0, 11.1%, 8.8%, 0.25);
+  color: hsla(0, 11.1%, 100%, 0.25);
   transition: color 175ms ease-in-out;
 }
 
 #search-page form input:focus::placeholder {
   color: hsla(0, 11.1%, 8.8%, 0.1);
+  color: hsla(0, 11.1%, 100%, 0.35);
 }
 
 #search-page form button {
@@ -131,6 +138,7 @@ h3 {
   background-color: transparent;
   cursor: pointer;
   color: #191414;
+  color: #f0edda;
   transition: color 150ms ease-in-out, opacity 150ms ease-in-out;
 }
 
@@ -140,7 +148,7 @@ h3 {
 }
 
 #search-page form button:focus {
-  color: white;
+  color: #f0edda;
 }
 
 #results-nav ul {
@@ -181,6 +189,16 @@ h3 {
   transition: transform 150ms ease-in-out;
 }
 
+.track-item .album-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  /* margin: 0; */
+  color: hsla(0, 11.1%, 8.8%, 0.45);
+  color: hsla(51.8, 42.3%, 89.8%, 0.45);
+}
+
 #tracks-list > ol li:hover .track-item .album-image {
   transform: scale(1.075);
 }
@@ -195,7 +213,7 @@ h3 {
 }
 
 #tracks-list > ol li:hover .track-item {
-  background-color: hsla(0, 11.1%, 100%, 0.15);
+  background-color: hsla(51.8, 42.3%, 89.8%, 0.1);
   transform: scale(1.025);
 }
 
@@ -218,7 +236,7 @@ h3 {
   flex-direction: column;
   justify-content: space-between;
   align-items: flex-start;
-  background-color: hsla(0, 11.1%, 8.8%, 0.75);
+  background-color: hsla(0, 11.1%, 8.8%, 0.95);
   /* background-color: hsla(141.2, 72.9%, 32%, 0.65); */
   backdrop-filter: blur(10px) brightness(125%);
   padding: 1rem;
@@ -303,8 +321,8 @@ h3 {
   margin-left: 0.5rem;
   font-size: 1rem;
   padding: 0.25rem 0.5rem;
-  background-color: hsla(0, 11.1%, 8.8%, 0.35);
-  color: white;
+  background-color: hsla(51.8, 42.3%, 89.8%, 0.15);
+  /* color: white; */
   border-radius: 0.25rem;
 }
 
@@ -315,4 +333,54 @@ h3 {
   margin: 0;
   padding: 0;
   justify-content: center;
+}
+
+.album-track-list {
+  /* list-style-type: decimal-leading-zero; */
+  margin-left: 2rem;
+  width: 100%;
+}
+
+.album-track-list li {
+  margin: 0.5rem 0;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid hsla(0, 11.1%, 8.8%, 0.15);
+  border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.15);
+}
+
+.album-track-list li:last-child {
+  border-bottom: none;
+}
+
+.album-type {
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+  padding: 0.125rem 0.25rem;
+  border: 1px solid hsla(51.8, 42.3%, 89.8%, 0.25);
+  /* color: white; */
+  border-radius: 0.25em;
+  font-style: normal;
+}
+
+.artist-name {
+  margin-left: 0.5rem;
+}
+
+.artist-name:first-child {
+  margin-left: 0;
+}
+
+.album-image-and-tracks {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+#album-details .track-title-tags {
+  background-color: transparent;
+  border: 1px solid hsl(141.2, 72.9%, 37%);
+  border: 1px solid hsla(51.8, 42.3%, 89.8%, 0.15);
+  /* color: hsla(0, 11.1%, 8.8%, 0.75); */
+  font-size: 0.85rem;
 }
