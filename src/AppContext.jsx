@@ -62,6 +62,8 @@ function AppProvider({ children }) {
   }
 
   function parseItemTitle(title) {
+    // This will add a <span> tag around the first part of the title, and a <span> tag with a class of "track-title-tags" around the second part of the title.
+    // This is so that the second part of the title can be styled differently.
     if (title.includes(" - ")) {
       let parts = title.split(" - ");
       return parts.map((part, i) => {
@@ -103,6 +105,15 @@ function AppProvider({ children }) {
     }
   }
 
+  function toKebabCase(str) {
+    return str
+      .toLowerCase()
+      .trim()
+      .split(" ")
+      .map((word) => word.replace(/[^a-z0-9]/gi, ""))
+      .join("-");
+  }
+
   const value = {
     searchTerm,
     searchResults,
@@ -119,6 +130,7 @@ function AppProvider({ children }) {
     getClassName,
     parseItemTitle,
     parseArtists,
+    toKebabCase,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
