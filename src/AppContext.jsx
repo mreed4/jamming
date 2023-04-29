@@ -9,6 +9,7 @@ function AppProvider({ children }) {
   const [playlistName, setPlaylistName] = useState("My Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [searchTermPersist, setSearchTermPersist] = useState("");
+  const [albumTracks, setAlbumTracks] = useState([]);
 
   const resultsArray = Object.keys(searchResults).reverse();
 
@@ -61,15 +62,22 @@ function AppProvider({ children }) {
     return isActive ? "active" : "";
   }
 
-  function parseItemTitle(title) {
+  function truncateString(str, num = 35) {
+    if (str.length <= num) {
+      return str;
+    }
+    return str.slice(0, num) + "...";
+  }
+
+  function parseTrackTitle(title, enableTags = true) {
     // This will add a <span> tag around the first part of the title, and a <span> tag with a class of "track-title-tags" around the second part of the title.
     // This is so that the second part of the title can be styled differently.
-    if (title.includes(" - ")) {
+    if (title.includes(" - ") && enableTags) {
       let parts = title.split(" - ");
       return parts.map((part, i) => {
         const key = `${part}-${i}`;
         if (i === 0) {
-          return <span key={key}>{part}</span>;
+          return <span key={key}>{truncateString(part)}</span>;
         } else {
           return (
             <span key={key} className="track-title-tags">
@@ -79,7 +87,7 @@ function AppProvider({ children }) {
         }
       });
     }
-    return title;
+    return truncateString(title);
   }
 
   function parseArtists(artists, itemType = "track") {
@@ -114,6 +122,22 @@ function AppProvider({ children }) {
       .join("-");
   }
 
+  function albumIsSingleOrCompilation(album) {
+    if (album.album_type === "single" || album.album_type === "compilation") {
+      return <span className="album-type">{toProperCase(album.album_type)}</span>;
+    }
+    return;
+  }
+
+  function toProperCase(str) {
+    let lower = str.toLowerCase().trim();
+    return lower[0].toUpperCase() + lower.slice(1);
+  }
+
+  function addLeadingZero(num) {
+    return num < 10 ? `0${num}` : num;
+  }
+
   const value = {
     searchTerm,
     searchResults,
@@ -121,6 +145,8 @@ function AppProvider({ children }) {
     playlistTracks,
     resultsArray,
     searchTermPersist,
+    albumTracks,
+    setAlbumTracks,
     addTrack,
     removeTrack,
     updatePlaylistName,
@@ -128,9 +154,12 @@ function AppProvider({ children }) {
     handleSearchTermChange,
     searchSpotify,
     getClassName,
-    parseItemTitle,
+    parseTrackTitle,
     parseArtists,
     toKebabCase,
+    albumIsSingleOrCompilation,
+    toProperCase,
+    addLeadingZero,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;
