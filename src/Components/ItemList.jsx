@@ -4,7 +4,7 @@ import Helpers from "../util/Helpers";
 export default function ItemList({ items, itemTypes }) {
   // console.log(items);
   return (
-    <article id={`${itemTypes}-list`} className="item-list">
+    <section id={`${itemTypes}-list`} className="item-list">
       <ol>
         {items.map((item) => {
           // console.log(item);
@@ -14,6 +14,6 @@ export default function ItemList({ items, itemTypes }) {
           return <li key={item.uri}>{itemTypes === "tracks" ? track : itemTypes === "artists" ? artist : album}</li>;
         })}
       </ol>
-    </article>
+    </section>
   );
 }
