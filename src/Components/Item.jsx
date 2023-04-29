@@ -3,7 +3,7 @@ import { AppContext } from "../AppContext";
 import { Link } from "react-router-dom";
 
 export default function Item({ item, itemType }) {
-  const { parseItemTitle, parseArtists, toKebabCase } = useContext(AppContext);
+  const { parseTrackTitle, parseArtists, toKebabCase, albumIsSingleOrCompilation } = useContext(AppContext);
   const placeholderImage = "https://placehold.co/600/191414/white@2x?text=No+Image";
 
   function renderAction() {
@@ -26,11 +26,15 @@ export default function Item({ item, itemType }) {
     const src = item.album.images[1]?.url ?? placeholderImage;
     return (
       <div className="track-item">
+        {/* <Link to={`/album/${toKebabCase(item.artists[0].name)}/${toKebabCase(item.name)}`} state={item}> */}
         <img src={src} className="album-image small" />
+        {/* </Link> */}
         <div className="track-info">
-          <h3>{parseItemTitle(item.name)}</h3>
-          <p className="italic dim">{parseArtists(item.artists, itemType)}</p>
-          <p className="italic dim">{item.album.name}</p>
+          <h3>{parseTrackTitle(item.name)}</h3>
+          <p className="">{parseArtists(item.artists, itemType)}</p>
+          <p className="italic album-name">
+            {item.album.name} {albumIsSingleOrCompilation(item.album)}
+          </p>
         </div>
         {/* {this.renderAction()} */}
       </div>
