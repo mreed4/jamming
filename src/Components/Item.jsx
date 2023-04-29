@@ -1,8 +1,9 @@
 import { useContext } from "react";
 import { AppContext } from "../AppContext";
+import { Link } from "react-router-dom";
 
 export default function Item({ item, itemType }) {
-  const { parseItemTitle, parseArtists } = useContext(AppContext);
+  const { parseItemTitle, parseArtists, toKebabCase } = useContext(AppContext);
   const placeholderImage = "https://placehold.co/600/191414/white@2x?text=No+Image";
 
   function renderAction() {
@@ -47,16 +48,18 @@ export default function Item({ item, itemType }) {
 
   if (itemType === "album") {
     return (
-      <div className="album-item list-image">
-        <div className="album-info">
-          <span>{item.name}</span>
-          <div>
-            <span className={item.artists.length > 1 ? "multi-artist" : ""}>{parseArtists(item.artists, itemType)}</span>
-            <span className="italic">{item.release_date.slice(0, 4)}</span>
+      <Link to={`/album/${toKebabCase(item.artists[0].name)}/${toKebabCase(item.name)}`} state={item}>
+        <div className="album-item list-image">
+          <div className="album-info">
+            {item.name}
+            <div>
+              <span className={item.artists.length > 1 ? "multi-artist" : ""}>{parseArtists(item.artists, itemType)}</span>
+              <span className="italic">{item.release_date.slice(0, 4)}</span>
+            </div>
           </div>
+          <img src={item.images[1].url} className="album-image" alt={item.name} title={item.name} />
         </div>
-        <img src={item.images[1].url} className="album-image" alt={item.name} title={item.name} />
-      </div>
+      </Link>
     );
   }
 }

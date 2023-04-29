@@ -5,6 +5,7 @@ import ItemList from "./ItemList";
 import SearchPage from "./SearchPage";
 import ResultsPage from "./ResultsPage";
 import LoadingPage from "./LoadingPage";
+import AlbumDetailsPage from "./AlbumDetailsPage";
 import Playlist from "./Playlist";
 
 export default function App() {
@@ -37,6 +38,8 @@ export default function App() {
             <Route path="/results/tracks" element={<LoadingPage />} />
           )}
           {/* <Route path="/playlist" element={<Playlist />} /> */}
+
+          <Route path="/album/:artist/:name" element={<AlbumDetailsPage />} />
           <Route path="*" element={<h2>404</h2>} />
         </Routes>
       </main>

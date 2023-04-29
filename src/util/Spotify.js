@@ -37,6 +37,25 @@ const Spotify = {
         });
     });
   },
+
+  getAlbumTracks(albumId) {
+    // get tracks for album
+    return Spotify.requestAccessToken().then((ACCESS_TOKEN) => {
+      const url = `https://api.spotify.com/v1/albums/${albumId}/tracks`;
+      const headers = { Authorization: `Bearer ${ACCESS_TOKEN}` };
+
+      return fetch(url, { headers })
+        .then((response) => response.json())
+        .then((data) => {
+          // console.log(data);
+          if (!data) {
+            return {};
+          }
+          // console.log(data.tracks.items);
+          return data;
+        });
+    });
+  },
 };
 
 export default Spotify;
