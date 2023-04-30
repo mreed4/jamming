@@ -26,14 +26,16 @@ export default function Item({ item, itemType }) {
     const src = item.album.images[1]?.url ?? placeholderImage;
     return (
       <div className="track-item">
-        {/* <Link to={`/album/${toKebabCase(item.artists[0].name)}/${toKebabCase(item.name)}`} state={item}> */}
-        <img src={src} className="album-image small" />
-        {/* </Link> */}
+        <Link to={`/album/${toKebabCase(item.artists[0].name)}/${toKebabCase(item.name)}`} state={item}>
+          <img src={src} className="album-image small" />
+        </Link>
         <div className="track-info">
           <h3>{parseTrackTitle(item.name)}</h3>
           <p className="">{parseArtists(item.artists, itemType)}</p>
           <p className="italic album-name">
-            {item.album.name} {albumIsSingleOrCompilation(item.album)}
+            <Link to={`/album/${toKebabCase(item.artists[0].name)}/${toKebabCase(item.name)}`} state={item}>
+              {item.album.name} {albumIsSingleOrCompilation(item.album)}
+            </Link>
           </p>
         </div>
         {/* {this.renderAction()} */}
