@@ -22,7 +22,7 @@ export default function AlbumDetailsPage() {
 
   return (
     <section id="album-details">
-      {/* <Link to={goBack}>Back</Link> */}
+      <button onClick={goBack}>Back</button>
       <div className="album-image-and-tracks">
         <div>
           <img src={album.images[0].url} className="album-image" />
