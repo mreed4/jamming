@@ -15,11 +15,13 @@ export default function App() {
   return (
     <Router>
       <ScrollToTop>
-        <main>
+        <header>
           <h1 id="site-title">
             <Link to="/">Audiophile</Link>
           </h1>
           <hr />
+        </header>
+        <main>
           <Routes>
             <Route path="/" element={<SearchPage />} />
             {resultsArray.length > 0 ? (

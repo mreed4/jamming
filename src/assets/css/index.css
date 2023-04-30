@@ -15,16 +15,6 @@
   user-select: none;
 }
 
-:root:has(#loading-page) {
-  /* background-color: #191414; */
-  /* color: #1db954; */
-}
-
-:root:has(#search-page) {
-  background-size: cover;
-  overflow: hidden;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -34,10 +24,14 @@ html {
 }
 
 body {
-  /* background-color: #1db954; */
   min-height: 100vh;
   margin: 0;
   padding: 0 0 10em;
+}
+
+body:has(#search-page),
+body:has(#loading-page) {
+  overflow: hidden;
 }
 
 a {
@@ -45,7 +39,8 @@ a {
   text-decoration: none;
 }
 
-main {
+main,
+header {
   max-width: 1280px;
   margin: 0 auto;
 }
