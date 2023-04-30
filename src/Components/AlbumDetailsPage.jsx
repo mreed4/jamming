@@ -9,7 +9,7 @@ export default function AlbumDetailsPage() {
   const navigate = useNavigate();
   const goBack = () => navigate(-1);
 
-  const { parseArtists, albumTracks, setAlbumTracks, parseTrackTitle, addLeadingZero } = useContext(AppContext);
+  const { parseArtists, albumTracks, setAlbumTracks, parseTrackTitle, addLeadingZero, toMinutesAndSeconds } = useContext(AppContext);
   // console.log(album);
 
   useEffect(() => {
@@ -32,8 +32,11 @@ export default function AlbumDetailsPage() {
         <ol className="album-track-list">
           {albumTracks.map((track, i) => {
             return (
-              <li key={track.id}>
-                {addLeadingZero(i + 1)} {parseTrackTitle(track.name, true)}
+              <li key={track.id} className="album-track">
+                <span>
+                  {addLeadingZero(i + 1)} {parseTrackTitle(track.name, true)}
+                </span>
+                <span className="dim">{toMinutesAndSeconds(track.duration_ms)}</span>
               </li>
             );
           })}

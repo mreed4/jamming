@@ -37,6 +37,7 @@ body {
   /* background-color: #1db954; */
   min-height: 100vh;
   margin: 0;
+  padding: 0 0 10em;
 }
 
 a {
@@ -64,6 +65,12 @@ h3 {
   margin: 0.5rem 0;
 }
 
+hr {
+  border: none;
+  border-bottom: 2px solid hsla(51.8, 42.3%, 89.8%, 0.15);
+  margin-bottom: 2em;
+}
+
 #results-nav a {
   padding: 0.5rem;
   border-radius: 0.25rem;
@@ -80,7 +87,7 @@ h3 {
 #tracks-list > ol li {
   padding: 1rem 0;
   border-bottom: 2px solid hsla(0, 11.1%, 8.8%, 0.15);
-  border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.1);
+  border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.05);
 }
 
 #tracks-list > ol li:last-child {
@@ -95,6 +102,14 @@ h3 {
 
 #search-page form {
   margin-top: 7rem;
+}
+
+#search-page form {
+  margin-top: 7rem;
+}
+
+#results-page form {
+  margin: 2rem 0;
 }
 
 #search-page form input {
@@ -238,7 +253,7 @@ h3 {
   align-items: flex-start;
   background-color: hsla(0, 11.1%, 8.8%, 0.95);
   /* background-color: hsla(141.2, 72.9%, 32%, 0.65); */
-  backdrop-filter: blur(10px) brightness(125%);
+  backdrop-filter: blur(10px) brightness(125%) saturate(0%);
   padding: 1rem;
   font-size: 1.75rem;
   color: #f0edda;
@@ -344,15 +359,20 @@ h3 {
 .album-track-list li {
   margin: 0.5rem 0;
   padding: 0.75rem 0;
-  border-bottom: 1px solid hsla(0, 11.1%, 8.8%, 0.15);
-  border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.15);
+  border-bottom: 2px solid hsla(0, 11.1%, 8.8%, 0.15);
+  border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.05);
 }
 
 .album-track-list li:last-child {
   border-bottom: none;
 }
 
-.album-type {
+.album-title-tags-wrap {
+  display: block;
+}
+
+.album-type,
+.album-title-tags {
   font-size: 0.85rem;
   margin-left: 0.5rem;
   padding: 0.125rem 0.25rem;
@@ -360,6 +380,11 @@ h3 {
   /* color: white; */
   border-radius: 0.25em;
   font-style: normal;
+}
+
+#albums-list .album-type,
+#albums-list .album-title-tags {
+  margin-left: 0;
 }
 
 .artist-name {
@@ -383,4 +408,11 @@ h3 {
   border: 1px solid hsla(51.8, 42.3%, 89.8%, 0.15);
   /* color: hsla(0, 11.1%, 8.8%, 0.75); */
   font-size: 0.85rem;
+}
+
+.album-track {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }

@@ -15,8 +15,9 @@ export default function App() {
     <Router>
       <main>
         <h1 id="site-title">
-          <Link to="/">Audiofile</Link>
+          <Link to="/">Audiophile</Link>
         </h1>
+        <hr />
         <Routes>
           <Route path="/" element={<SearchPage />} />
           {resultsArray.length > 0 ? (

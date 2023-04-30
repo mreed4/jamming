@@ -90,6 +90,25 @@ function AppProvider({ children }) {
     return truncateString(title);
   }
 
+  function parseAlbumTitle(title, enableTags = true) {
+    if (title.includes("(") && enableTags) {
+      let parts = title.split(" (");
+      return parts.map((part, i) => {
+        const key = `${part}-${i}`;
+        if (i === 0) {
+          return <span key={key}>{truncateString(part, 12)}</span>;
+        } else {
+          return (
+            <span key={key} className="album-title-tags-wrap">
+              <span className="album-title-tags">{truncateString(part.slice(0, -1), 25)}</span>
+            </span>
+          );
+        }
+      });
+    }
+    return truncateString(title, 12);
+  }
+
   function parseArtists(artists, itemType = "track") {
     if (itemType === "track") {
       return artists.map((artist) => {
@@ -138,6 +157,12 @@ function AppProvider({ children }) {
     return num < 10 ? `0${num}` : num;
   }
 
+  function toMinutesAndSeconds(ms) {
+    const minutes = Math.floor(ms / 60000);
+    const seconds = ((ms % 60000) / 1000).toFixed(0);
+    return `${minutes}:${addLeadingZero(seconds)}`;
+  }
+
   const value = {
     searchTerm,
     searchResults,
@@ -147,19 +172,24 @@ function AppProvider({ children }) {
     searchTermPersist,
     albumTracks,
     setAlbumTracks,
+    /* */
     addTrack,
     removeTrack,
     updatePlaylistName,
     savePlaylist,
     handleSearchTermChange,
     searchSpotify,
+    /* */
     getClassName,
     parseTrackTitle,
+    parseAlbumTitle,
     parseArtists,
     toKebabCase,
     albumIsSingleOrCompilation,
     toProperCase,
     addLeadingZero,
+    truncateString,
+    toMinutesAndSeconds,
   };
 
   return <AppContext.Provider value={value}>{children}</AppContext.Provider>;

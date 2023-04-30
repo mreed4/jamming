@@ -39,7 +39,6 @@ const Spotify = {
   },
 
   getAlbumTracks(albumId) {
-    // get tracks for album
     return Spotify.requestAccessToken().then((ACCESS_TOKEN) => {
       const url = `https://api.spotify.com/v1/albums/${albumId}/tracks`;
       const headers = { Authorization: `Bearer ${ACCESS_TOKEN}` };
