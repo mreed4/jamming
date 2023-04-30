@@ -9,8 +9,8 @@ export default function ResultsPage() {
 
   return (
     <>
-      <SearchForm />
       <section id="results-page">
+        <SearchForm />
         <h2 className="italic">Results for "{searchTermPersist}"</h2>
         {/* <Link to="/">Back</Link> */}
         <nav id="results-nav">
