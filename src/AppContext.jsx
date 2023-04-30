@@ -81,7 +81,7 @@ function AppProvider({ children }) {
         } else {
           return (
             <span key={key} className="track-title-tags">
-              {part}
+              {truncateString(part, 20)}
             </span>
           );
         }
