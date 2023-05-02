@@ -96,17 +96,17 @@ function AppProvider({ children }) {
       return parts.map((part, i) => {
         const key = `${part}-${i}`;
         if (i === 0) {
-          return <span key={key}>{truncateString(part, 12)}</span>;
+          return <span key={key}>{truncateString(part, 22)}</span>;
         } else {
           return (
             <span key={key} className="album-title-tags-wrap">
-              <span className="album-title-tags">{truncateString(part.slice(0, -1), 25)}</span>
+              <span className="album-title-tags">{truncateString(part.slice(0, -1), 22)}</span>
             </span>
           );
         }
       });
     }
-    return truncateString(title, 12);
+    return truncateString(title, 22);
   }
 
   function parseArtists(artists, itemType = "track") {
