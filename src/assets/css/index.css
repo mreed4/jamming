@@ -34,6 +34,14 @@ body:has(#loading-page) {
   overflow: hidden;
 }
 
+body:has(#search-page) #conditional-search-bar,
+body:has(#search-page) .back-button,
+body:has(#loading-page) #conditional-search-bar,
+body:has(#loading-page) .back-button,
+body:has(#results-page) .back-button {
+  display: none;
+}
+
 a {
   color: inherit;
   text-decoration: none;
@@ -43,6 +51,14 @@ main,
 header {
   max-width: 1280px;
   margin: 0 auto;
+}
+
+header > div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* padding: 1rem 0; */
 }
 
 h1 {
@@ -101,10 +117,6 @@ hr {
 
 #search-page form {
   margin-top: 7rem;
-}
-
-#results-page form {
-  margin: 2rem 0;
 }
 
 #search-page form input {
@@ -410,4 +422,9 @@ hr {
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.back-button {
+  display: block;
+  margin-bottom: 2em;
 }

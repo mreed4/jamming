@@ -10,7 +10,7 @@ export default function ResultsPage() {
   return (
     <>
       <section id="results-page">
-        <SearchForm />
+        {/* <SearchForm /> */}
         <h2 className="italic">Results for "{searchTermPersist}"</h2>
         {/* <Link to="/">Back</Link> */}
         <nav id="results-nav">

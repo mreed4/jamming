@@ -30,9 +30,6 @@ export default function AlbumDetailsPage() {
 
   return (
     <section id="album-details">
-      <Link to="/results/tracks" className="back-button">
-        &larr; Back
-      </Link>
       <div className="album-image-and-tracks">
         <div>
           <img src={state.type === "track" ? state.album.images[0].url : state.images[0].url} className="album-image" />

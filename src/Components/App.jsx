@@ -7,6 +7,7 @@ import ResultsPage from "./ResultsPage";
 import LoadingPage from "./LoadingPage";
 import AlbumDetailsPage from "./AlbumDetailsPage";
 import ScrollToTop from "./ScrollToTop";
+import SearchForm from "./SearchForm";
 import Playlist from "./Playlist";
 
 export default function App() {
@@ -16,10 +17,19 @@ export default function App() {
     <Router>
       <ScrollToTop>
         <header>
-          <h1 id="site-title">
-            <Link to="/">Audiophile</Link>
-          </h1>
+          <div>
+            <h1 id="site-title">
+              <Link to="/">Audiophile</Link>
+            </h1>
+            <div id="conditional-search-bar">
+              <SearchForm />
+            </div>
+          </div>
           <hr />
+
+          <Link to="/results/tracks" className="back-button">
+            &larr; Back
+          </Link>
         </header>
         <main>
           <Routes>
