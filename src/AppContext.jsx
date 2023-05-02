@@ -136,6 +136,7 @@ function AppProvider({ children }) {
   function toKebabCase(str) {
     return str
       .toLowerCase()
+      .replaceAll("-", "")
       .trim()
       .split(" ")
       .map((word) => word.replace(/[^a-z0-9]/gi, ""))
