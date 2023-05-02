@@ -12,6 +12,7 @@ function AppProvider({ children }) {
   const [albumTracks, setAlbumTracks] = useState([]);
 
   const resultsArray = Object.keys(searchResults).reverse();
+  const placeholderImage = "https://placehold.co/600/191414/white@2x?text=No+Image";
 
   function addTrack(track) {
     let tracks = playlistTracks;
@@ -164,22 +165,33 @@ function AppProvider({ children }) {
   }
 
   const value = {
+    /* 
+    States 
+    */
     searchTerm,
     searchResults,
     playlistName,
     playlistTracks,
-    resultsArray,
     searchTermPersist,
     albumTracks,
     setAlbumTracks,
-    /* */
+    /* 
+    Globals 
+    */
+    resultsArray,
+    placeholderImage,
+    /* 
+    Spotify related 
+    */
     addTrack,
     removeTrack,
     updatePlaylistName,
     savePlaylist,
     handleSearchTermChange,
     searchSpotify,
-    /* */
+    /* 
+    Helpers 
+    */
     getClassName,
     parseTrackTitle,
     parseAlbumTitle,
