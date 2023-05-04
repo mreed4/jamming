@@ -31,7 +31,7 @@ export default function App() {
               <Route path="/results/tracks" element={<LoadingPage />} />
             )}
             <Route path="/album/:artist/:name" element={<AlbumDetailsPage />} />
-            {/* <Route path="/artist/:name" element={<ArtistDetailsPage />} /> */}
+            <Route path="/artist/:name" element={<ArtistDetailsPage />} />
             <Route path="*" element={<h2>404</h2>} />
           </Routes>
         </main>
