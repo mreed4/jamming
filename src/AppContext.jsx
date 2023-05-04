@@ -5,10 +5,10 @@ const AppContext = createContext();
 
 function AppProvider({ children }) {
   const [searchTerm, setSearchTerm] = useState("");
+  const [searchTermPersist, setSearchTermPersist] = useState("");
   const [searchResults, setSearchResults] = useState({});
   const [playlistName, setPlaylistName] = useState("My Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
-  const [searchTermPersist, setSearchTermPersist] = useState("");
   const [albumTracks, setAlbumTracks] = useState([]);
 
   const resultsArray = Object.keys(searchResults).reverse();
@@ -136,7 +136,7 @@ function AppProvider({ children }) {
   function toKebabCase(str) {
     return str
       .toLowerCase()
-      .replaceAll("-", "")
+      .replaceAll(" - ", " ")
       .trim()
       .split(" ")
       .map((word) => word.replace(/[^a-z0-9]/gi, ""))
