@@ -6,6 +6,7 @@ import Spotify from "../util/Spotify";
 export default function AlbumDetailsPage() {
   const location = useLocation();
   const { state } = location;
+  const { type } = state;
 
   const { parseArtists, albumTracks, setAlbumTracks, parseTrackTitle, addLeadingZero, toMinutesAndSeconds } = useContext(AppContext);
 
@@ -32,8 +33,8 @@ export default function AlbumDetailsPage() {
     <section id="album-details">
       <div className="album-image-and-tracks">
         <div>
-          <img src={state.type === "track" ? state.album.images[0].url : state.images[0].url} className="album-image" />
-          <h2>{state.name}</h2>
+          <img src={type === "track" ? state.album.images[0].url : state.images[0].url} className="album-image" />
+          <h2>{type === "track" ? state.album.name : state.name}</h2>
           <h3>{parseArtists(state.artists)}</h3>
         </div>
         <ol className="album-track-list">
