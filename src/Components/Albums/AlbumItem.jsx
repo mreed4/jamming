@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../AppContext";
+import { AppContext } from "../Wrappers/AppContext";
 import { Link } from "react-router-dom";
 import AlbumItemContents from "./AlbumItemContents";
 

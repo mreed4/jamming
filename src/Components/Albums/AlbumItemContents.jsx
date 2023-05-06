@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AppContext } from "../AppContext";
+import { AppContext } from "../Wrappers/AppContext";
 
 export default function AlbumItemContents({ album, itemType }) {
   const { parseArtists, albumIsSingleOrCompilation, parseAlbumTitle, placeholderImage } = useContext(AppContext);

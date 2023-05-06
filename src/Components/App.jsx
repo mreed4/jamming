@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { useContext } from "react";
-import { AppContext } from "./AppContext";
+import { AppContext } from "./Wrappers/AppContext";
+import ScrollToTop from "./Wrappers/ScrollToTop";
 import Header from "./Header";
 import ItemLists from "./ItemLists";
 import SearchPage from "./SearchPage";
@@ -8,7 +9,6 @@ import ResultsPage from "./ResultsPage";
 import LoadingPage from "./LoadingPage";
 import AlbumDetailsPage from "./Albums/AlbumDetailsPage";
 import ArtistDetailsPage from "./Artists/ArtistDetailsPage";
-import ScrollToTop from "./ScrollToTop";
 import Playlist from "./Playlist";
 
 export default function App() {

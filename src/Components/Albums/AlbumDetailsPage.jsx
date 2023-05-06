@@ -1,6 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
 import { useContext, useEffect } from "react";
-import { AppContext } from "../AppContext";
+import { AppContext } from "../Wrappers/AppContext";
 import Spotify from "../../util/Spotify";
 
 export default function AlbumDetailsPage() {

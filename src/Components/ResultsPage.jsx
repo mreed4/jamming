@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { useContext } from "react";
-import { AppContext } from "./AppContext";
+import { AppContext } from "./Wrappers/AppContext";
 
 export default function ResultsPage() {
   const { getClassName, resultsArray, searchTermPersist, toProperCase } = useContext(AppContext);
