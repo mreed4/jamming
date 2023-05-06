@@ -29,14 +29,14 @@ export default function TrackListItem({ track, itemType }) {
 
   return (
     <div className="track-item">
-      <Link to={`/album/${toKebabCase(track.artists[0].name)}/${toKebabCase(track.album.name)}`} state={track}>
+      <Link to={`/album/${toKebabCase(track.album.artists[0].name)}/${toKebabCase(track.album.name)}`} state={track}>
         <img src={src} className="album-image small" />
       </Link>
       <div className="track-info">
         <h3>{parseTrackTitle(track.name)}</h3>
         <p className="">{parseArtists(track.artists, itemType)}</p>
         <p className="italic album-name">
-          <Link to={`/album/${toKebabCase(track.artists[0].name)}/${toKebabCase(track.album.name)}`} state={track}>
+          <Link to={`/album/${toKebabCase(track.album.artists[0].name)}/${toKebabCase(track.album.name)}`} state={track}>
             {track.album.name} {albumIsSingleOrCompilation(track.album)}
           </Link>
         </p>
