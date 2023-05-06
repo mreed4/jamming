@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { AppContext } from "../Wrappers/AppContext";
 import Spotify from "../../util/Spotify";
-import ArtistAlbumsList from "../Albums/ArtistAlbumsList";
+import ArtistAlbumsList from "./ArtistAlbumsList";
 
 export default function ArtistDetailsPage() {
   // return <h2>ArtistDetailsPage</h2>;
