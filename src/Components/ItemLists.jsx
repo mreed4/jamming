@@ -1,8 +1,8 @@
-import TrackItem from "./TrackItem";
-import ArtistItem from "./ArtistItem";
-import AlbumItem from "./AlbumItem";
+import TrackItem from "./Tracks/TrackItem";
+import ArtistItem from "./Artists/ArtistItem";
+import AlbumItem from "./Albums/AlbumItem";
 
-export default function ItemList({ items, itemTypes }) {
+export default function ItemLists({ items, itemTypes }) {
   return (
     <section id={`${itemTypes}-list`} className="item-list">
       <ol>

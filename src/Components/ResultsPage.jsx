@@ -1,6 +1,6 @@
 import { NavLink, Outlet } from "react-router-dom";
 import { useContext } from "react";
-import { AppContext } from "../AppContext";
+import { AppContext } from "./AppContext";
 
 export default function ResultsPage() {
   const { getClassName, resultsArray, searchTermPersist, toProperCase } = useContext(AppContext);
@@ -23,7 +23,7 @@ export default function ResultsPage() {
         </ul>
       </nav>
       <div id="item-lists">
-        <Outlet />
+        <Outlet /> {/* See line 27 of App.jsx */}
       </div>
     </section>
   );

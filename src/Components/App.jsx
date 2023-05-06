@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { useContext } from "react";
-import { AppContext } from "../AppContext";
+import { AppContext } from "./AppContext";
 import Header from "./Header";
-import ItemList from "./ItemList";
+import ItemLists from "./ItemLists";
 import SearchPage from "./SearchPage";
 import ResultsPage from "./ResultsPage";
 import LoadingPage from "./LoadingPage";
-import AlbumDetailsPage from "./AlbumDetailsPage";
-import ArtistDetailsPage from "./ArtistDetailsPage";
+import AlbumDetailsPage from "./Albums/AlbumDetailsPage";
+import ArtistDetailsPage from "./Artists/ArtistDetailsPage";
 import ScrollToTop from "./ScrollToTop";
 import Playlist from "./Playlist";
 
@@ -24,11 +24,11 @@ export default function App() {
             {resultsArray.length > 0 ? (
               <Route path="/results" element={<ResultsPage />}>
                 {resultsArray.reverse().map((key) => {
-                  return <Route key={key} path={key} element={<ItemList items={searchResults[key].items} itemTypes={key} />} />;
+                  return <Route key={key} path={key} element={<ItemLists items={searchResults[key].items} itemTypes={key} />} />;
                 })}
               </Route>
             ) : (
-              <Route path="/results/tracks" element={<LoadingPage />} />
+              <Route path="/results/tracks" element={<LoadingPage />} /> // This is a placeholder for the loading page
             )}
             <Route path="/album/:artist/:name" element={<AlbumDetailsPage />} />
             <Route path="/artist/:name" element={<ArtistDetailsPage />} />

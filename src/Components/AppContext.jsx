@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import Spotify from "./util/Spotify";
+import Spotify from "../util/Spotify";
 
 const AppContext = createContext();
 
