@@ -13,14 +13,14 @@ export default function AlbumDetailsPage() {
   useEffect(() => {
     setAlbumTracks([]);
     if (!state) return;
-    if (state.type === "album") {
+    if (type === "album") {
       Spotify.getAlbumTracks(state.id)
         .then((state) => {
           setAlbumTracks(state.items);
         })
         .catch((err) => console.error(err));
     }
-    if (state.type === "track") {
+    if (type === "track") {
       Spotify.getAlbumTracks(state.album.id)
         .then((state) => {
           setAlbumTracks(state.items);
