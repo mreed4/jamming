@@ -1,14 +1,15 @@
-import { useLocation, Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useContext, useEffect } from "react";
 import { AppContext } from "../Wrappers/AppContext";
 import Spotify from "../../util/Spotify";
+import AlbumTrackList from "./AlbumTrackList";
 
 export default function AlbumDetailsPage() {
   const location = useLocation();
   const { state } = location;
   const { type } = state;
 
-  const { parseArtists, albumTracks, setAlbumTracks, parseTrackTitle, addLeadingZero, toMinutesAndSeconds } = useContext(AppContext);
+  const { parseArtists, setAlbumTracks } = useContext(AppContext);
 
   useEffect(() => {
     setAlbumTracks([]);
@@ -35,20 +36,9 @@ export default function AlbumDetailsPage() {
         <div>
           <img src={type === "track" ? state.album.images[0].url : state.images[0].url} className="album-image" />
           <h2>{type === "track" ? state.album.name : state.name}</h2>
-          <h3>{parseArtists(state.artists)}</h3>
+          <h3>{type === "track" ? parseArtists(state.album.artists) : parseArtists(state.artists)}</h3>
         </div>
-        <ol className="album-track-list">
-          {albumTracks.map((track, i) => {
-            return (
-              <li key={track.id} className="album-track">
-                <span>
-                  {addLeadingZero(i + 1)} {parseTrackTitle(track.name, true)}
-                </span>
-                <span className="dim">{toMinutesAndSeconds(track.duration_ms)}</span>
-              </li>
-            );
-          })}
-        </ol>
+        <AlbumTrackList type={type} state={state} />
       </div>
     </section>
   );

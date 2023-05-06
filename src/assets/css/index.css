@@ -1,7 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Crimson+Text:ital@0;1&family=Fira+Code&family=Jost:ital,wght@0,300;0,400;1,300&display=swap");
+
 :root {
   line-height: 1.5;
   font-size: 20px;
-  font-family: sans-serif;
+  font-family: "Jost", sans-serif;
+  font-weight: 300;
 
   color-scheme: light dark;
 
@@ -61,6 +64,12 @@ header > div {
   /* padding: 1rem 0; */
 }
 
+h1,
+h2,
+h3 {
+  font-weight: 400;
+}
+
 h1 {
   font-size: 3rem;
   margin: 1.5rem 0;
@@ -93,6 +102,10 @@ hr {
   background-color: #f0edda;
   color: white;
   color: #191414;
+}
+
+#results-nav a:not(.active):hover {
+  color: #1db954;
 }
 
 #tracks-list > ol li {
@@ -427,4 +440,36 @@ hr {
 .back-button {
   display: block;
   margin-bottom: 2em;
+}
+
+#site-title {
+  /* letter-spacing: -0.25rem; */
+  /* font-family: "Crimson Text", serif; */
+}
+
+#site-title a {
+  color: #1db954;
+  transition: color 150ms ease-in-out;
+}
+
+#site-title a:hover {
+  color: #ccf656;
+}
+
+.track-info h3 {
+  color: #1db954;
+}
+
+.track-info h3 span.track-title-tags {
+  color: #f0edda;
+}
+
+.compilation-artist {
+  display: inline-block;
+  margin-left: 0.5em;
+}
+
+.album-track-number {
+  display: inline-block;
+  margin-right: 0.5em;
 }
