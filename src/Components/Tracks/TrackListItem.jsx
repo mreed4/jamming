@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext } from "../Wrappers/AppContext";
 import { Link } from "react-router-dom";
 
-export default function TrackItem({ track, itemType }) {
+export default function TrackListItem({ track, itemType }) {
   const { parseArtists, parseTrackTitle, toKebabCase, albumIsSingleOrCompilation, placeholderImage } = useContext(AppContext);
 
   const src = track.album.images[1]?.url ?? placeholderImage;

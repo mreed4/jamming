@@ -1,7 +1,9 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
 import { useContext } from "react";
+
 import { AppContext } from "./Wrappers/AppContext";
 import ScrollToTop from "./Wrappers/ScrollToTop";
+
 import Header from "./Header";
 import ItemLists from "./ItemLists";
 import SearchPage from "./SearchPage";
@@ -28,7 +30,7 @@ export default function App() {
                 })}
               </Route>
             ) : (
-              <Route path="/results/tracks" element={<LoadingPage />} /> // This is a placeholder for the loading page
+              <Route path="/results/tracks" element={<LoadingPage />} /> // This is the route location of useNavigate() in SearchForm.jsx
             )}
             <Route path="/album/:artist/:name" element={<AlbumDetailsPage />} />
             <Route path="/artist/:name" element={<ArtistDetailsPage />} />

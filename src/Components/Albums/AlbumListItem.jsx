@@ -3,7 +3,7 @@ import { AppContext } from "../Wrappers/AppContext";
 import { Link } from "react-router-dom";
 import AlbumItemContents from "./AlbumItemContents";
 
-export default function AlbumItem({ album, itemType }) {
+export default function AlbumListItem({ album, itemType }) {
   const { toKebabCase } = useContext(AppContext);
 
   return (
