@@ -1,4 +1,3 @@
-import Items from "./Items";
 import TrackItem from "./TrackItem";
 import ArtistItem from "./ArtistItem";
 import AlbumItem from "./AlbumItem";
