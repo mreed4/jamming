@@ -10,6 +10,7 @@ function AppProvider({ children }) {
   const [playlistName, setPlaylistName] = useState("My Playlist");
   const [playlistTracks, setPlaylistTracks] = useState([]);
   const [albumTracks, setAlbumTracks] = useState([]);
+  const [artistAlbums, setArtistAlbums] = useState([]);
 
   const resultsArray = Object.keys(searchResults).reverse();
   const placeholderImage = "https://placehold.co/600/191414/white@2x?text=No+Image";
@@ -175,7 +176,9 @@ function AppProvider({ children }) {
     playlistTracks,
     searchTermPersist,
     albumTracks,
+    artistAlbums,
     setAlbumTracks,
+    setArtistAlbums,
     /* 
     Globals 
     */
