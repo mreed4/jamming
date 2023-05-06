@@ -1,7 +1,9 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchForm from "./SearchForm";
 
 export default function Header() {
+  const navigate = useNavigate();
+
   return (
     <header>
       <div>
@@ -13,9 +15,9 @@ export default function Header() {
         </div>
       </div>
       <hr />
-      <Link to="/results/tracks" className="back-button">
+      <button onClick={() => navigate(-1)} className="back-button">
         &larr; Back
-      </Link>
+      </button>
     </header>
   );
 }
