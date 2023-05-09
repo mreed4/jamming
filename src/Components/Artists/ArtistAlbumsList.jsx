@@ -9,8 +9,8 @@ export default function ArtistAlbumsList({ artist }) {
       {artistAlbums.map((album) => {
         return (
           <li key={album.id}>
-            <Link to={`/album/${toKebabCase(artist.name)}/${toKebabCase(album.name)}`} state={album}>
-              <img src={album.images[1].url} />
+            <Link to={`/album/${toKebabCase(album.artists[0].name)}/${toKebabCase(album.name)}`} state={album}>
+              <img src={album.images[1].url} className="album-image" />
               {/* <AlbumItemContents album={album} itemType="album" /> */}
             </Link>
           </li>

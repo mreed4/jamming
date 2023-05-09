@@ -5,9 +5,9 @@ import { AppContext } from "./Wrappers/AppContext";
 import ScrollToTop from "./Wrappers/ScrollToTop";
 
 import Header from "./Header";
-import ItemLists from "./ItemLists";
-import SearchPage from "./SearchPage";
-import ResultsPage from "./ResultsPage";
+import ItemLists from "./Results/ItemLists";
+import SearchPage from "./Search/SearchPage";
+import ResultsPage from "./Results/ResultsPage";
 import LoadingPage from "./LoadingPage";
 import AlbumDetailsPage from "./Albums/AlbumDetailsPage";
 import ArtistDetailsPage from "./Artists/ArtistDetailsPage";

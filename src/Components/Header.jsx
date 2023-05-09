@@ -1,5 +1,5 @@
 import { Link, useNavigate } from "react-router-dom";
-import SearchForm from "./SearchForm";
+import SearchForm from "./Search/SearchForm";
 
 export default function Header() {
   const navigate = useNavigate();

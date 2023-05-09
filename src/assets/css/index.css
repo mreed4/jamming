@@ -85,6 +85,11 @@ h3 {
   margin: 0.5rem 0;
 }
 
+h4 {
+  font-size: 1.25rem;
+  margin: 0.25rem 0;
+}
+
 hr {
   border: none;
   border-bottom: 2px solid hsla(51.8, 42.3%, 89.8%, 0.15);
@@ -106,16 +111,6 @@ hr {
 
 #results-nav a:not(.active):hover {
   color: #1db954;
-}
-
-#tracks-list > ol li {
-  padding: 1rem 0;
-  border-bottom: 2px solid hsla(0, 11.1%, 8.8%, 0.15);
-  border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.05);
-}
-
-#tracks-list > ol li:last-child {
-  border-bottom-color: transparent;
 }
 
 #search-page {
@@ -220,36 +215,65 @@ hr {
   height: 125px;
 }
 
-.track-item .album-image {
-  transition: transform 150ms ease-in-out;
+.artist-item {
+  width: 300px;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
 }
 
-.track-item .album-name {
+.artist-image {
+  margin: 0;
+  object-fit: cover;
+  width: 100%;
+}
+
+.list-image {
+  margin: 0.5rem;
+}
+
+.dim {
+  opacity: 0.6;
+}
+
+.item-list:not(#tracks-list) > ol {
   display: flex;
   flex-direction: row;
-  justify-content: left;
-  align-items: center;
-  /* margin: 0; */
-  color: hsla(0, 11.1%, 8.8%, 0.45);
-  color: hsla(51.8, 42.3%, 89.8%, 0.45);
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  justify-content: center;
 }
 
-#tracks-list > ol li:hover .track-item .album-image {
-  transform: scale(1.075);
+.album-track-list {
+  /* list-style-type: decimal-leading-zero; */
+  margin-left: 2rem;
+  width: 100%;
 }
 
-.track-item {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 0.5rem;
-  border-radius: 0.25rem;
-  transition: background-color 75ms ease-in-out, transform 150ms ease-in-out;
+.album-track-list li {
+  margin: 0.5rem 0;
+  padding: 0.75rem 0;
+  border-bottom: 2px solid hsla(0, 11.1%, 8.8%, 0.15);
+  border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.05);
 }
 
-#tracks-list > ol li:hover .track-item {
-  background-color: hsla(51.8, 42.3%, 89.8%, 0.1);
-  transform: scale(1.025);
+.album-track-list li:last-child {
+  border-bottom: none;
+}
+
+.album-title-tags-wrap {
+  display: block;
+}
+
+.artist-name {
+  margin-left: 0.5rem;
+}
+
+.artist-name:first-child {
+  margin-left: 0;
 }
 
 #albums-list .album-item {
@@ -309,6 +333,64 @@ hr {
   border-radius: 0.25rem;
 }
 
+#albums-list .album-type,
+#albums-list .album-title-tags {
+  font-size: 0.85rem;
+  margin-left: 0.5rem;
+  padding: 0.125rem 0.25rem;
+  border: 1px solid hsla(51.8, 42.3%, 89.8%, 0.25);
+  /* color: white; */
+  border-radius: 0.25em;
+  font-style: normal;
+}
+
+#albums-list .album-type,
+#albums-list .album-title-tags {
+  margin-left: 0;
+}
+
+#tracks-list > ol li {
+  padding: 1rem 0;
+  border-bottom: 2px solid hsla(0, 11.1%, 8.8%, 0.15);
+  border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.05);
+}
+
+#tracks-list > ol li:last-child {
+  border-bottom-color: transparent;
+}
+
+#tracks-list > ol li:hover .track-item .album-image {
+  transform: scale(1.075);
+}
+
+.track-item .album-image {
+  transition: transform 150ms ease-in-out;
+}
+
+.track-item .album-name {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+  /* margin: 0; */
+  color: hsla(0, 11.1%, 8.8%, 0.45);
+  color: hsla(51.8, 42.3%, 89.8%, 0.45);
+}
+
+.track-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 0.25rem;
+  transition: background-color 75ms ease-in-out, transform 150ms ease-in-out;
+}
+
+#tracks-list > ol li:hover .track-item {
+  background-color: hsla(51.8, 42.3%, 89.8%, 0.1);
+  transform: scale(1.025);
+}
+
 .track-info {
   display: flex;
   flex-direction: column;
@@ -328,29 +410,6 @@ hr {
   margin: 0.25rem 0;
 }
 
-.artist-item {
-  width: 300px;
-  height: 300px;
-  overflow: hidden;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-}
-
-.artist-image {
-  margin: 0;
-  object-fit: cover;
-  width: 100%;
-}
-
-.list-image {
-  margin: 0.5rem;
-}
-
-.dim {
-  opacity: 0.6;
-}
-
 .track-title-tags {
   display: inline-block;
   margin-left: 0.5rem;
@@ -361,65 +420,49 @@ hr {
   border-radius: 0.25rem;
 }
 
-.item-list:not(#tracks-list) > ol {
+#album-details {
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
   margin: 0;
   padding: 0;
-  justify-content: center;
 }
 
-.album-track-list {
-  /* list-style-type: decimal-leading-zero; */
-  margin-left: 2rem;
-  width: 100%;
-}
-
-.album-track-list li {
-  margin: 0.5rem 0;
-  padding: 0.75rem 0;
-  border-bottom: 2px solid hsla(0, 11.1%, 8.8%, 0.15);
-  border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.05);
-}
-
-.album-track-list li:last-child {
-  border-bottom: none;
-}
-
-.album-title-tags-wrap {
-  display: block;
-}
-
-.album-type,
-.album-title-tags {
-  font-size: 0.85rem;
-  margin-left: 0.5rem;
-  padding: 0.125rem 0.25rem;
+#album-details .album-type,
+#album-details .album-title-tags {
+  font-size: 1.25rem;
+  /* margin-left: 0.5rem; */
+  margin-top: 0.75rem;
+  padding: 0.25rem 0.75rem;
   border: 1px solid hsla(51.8, 42.3%, 89.8%, 0.25);
   /* color: white; */
   border-radius: 0.25em;
   font-style: normal;
 }
 
-#albums-list .album-type,
-#albums-list .album-title-tags {
-  margin-left: 0;
+#album-details h2 {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.artist-name {
-  margin-left: 0.5rem;
+#album-details h2 .album-type {
+  display: flex;
+  align-items: center;
 }
 
-.artist-name:first-child {
-  margin-left: 0;
-}
-
-.album-image-and-tracks {
+#album-details .album-title {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items: flex-start;
+  align-items: center;
+}
+
+#album-details .album-title-tags-wrap {
+  display: flex;
+  align-items: center;
 }
 
 #album-details .track-title-tags {
@@ -466,10 +509,26 @@ hr {
 
 .compilation-artist {
   display: inline-block;
-  margin-left: 0.5em;
+  padding-top: 0.25rem;
 }
 
 .album-track-number {
-  display: inline-block;
-  margin-right: 0.5em;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0.75rem;
+  font-size: 1.25rem;
+}
+
+.album-track-name-artist {
+  display: flex;
+  flex-direction: column;
+}
+
+.album-track-number-info-wrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
 }

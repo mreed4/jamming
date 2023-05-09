@@ -8,8 +8,9 @@ export default function AlbumDetailsPage() {
   const location = useLocation();
   const { state } = location;
   const { type } = state;
+  console.log(type);
 
-  const { parseArtists, setAlbumTracks } = useContext(AppContext);
+  const { parseArtists, parseAlbumTitle, albumIsSingleOrCompilation, setAlbumTracks } = useContext(AppContext);
 
   useEffect(() => {
     setAlbumTracks([]);
@@ -32,14 +33,25 @@ export default function AlbumDetailsPage() {
 
   return (
     <section id="album-details">
-      <div className="album-image-and-tracks">
-        <div>
-          <img src={type === "track" ? state.album.images[0].url : state.images[0].url} className="album-image" />
-          <h2>{type === "track" ? state.album.name : state.name}</h2>
-          <h3>{type === "track" ? parseArtists(state.album.artists) : parseArtists(state.artists)}</h3>
-        </div>
-        <AlbumTrackList type={type} state={state} />
+      <div>
+        <img src={type === "track" ? state.album.images[0].url : state.images[0].url} className="album-image" />
+        {type === "track" && (
+          <h2>
+            <span className="album-title">{state.album.name}</span>
+            <>{albumIsSingleOrCompilation(state.album)}</>
+          </h2>
+        )}
+        {type === "album" && (
+          <h2>
+            <span className="album-title">{state.name}</span>
+            <>{albumIsSingleOrCompilation(state)}</>
+          </h2>
+        )}
+        {/* {type === "a"}
+          <h2>{type === "track" ? state.album.name : state.name}</h2> */}
+        <h3>{type === "track" ? parseArtists(state.album.artists) : parseArtists(state.artists)}</h3>
       </div>
+      <AlbumTrackList type={type} state={state} />
     </section>
   );
 }

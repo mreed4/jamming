@@ -1,6 +1,6 @@
-import TrackListItem from "./Tracks/TrackListItem";
-import ArtistListItem from "./Artists/ArtistListItem";
-import AlbumListItem from "./Albums/AlbumListItem";
+import TrackListItem from "../Tracks/TrackListItem";
+import ArtistListItem from "../Artists/ArtistListItem";
+import AlbumListItem from "../Albums/AlbumListItem";
 
 export default function ItemLists({ items, itemTypes }) {
   return (

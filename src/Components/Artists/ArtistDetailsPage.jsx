@@ -23,8 +23,10 @@ export default function ArtistDetailsPage() {
   return (
     <section id="artist-details">
       <h2>{artist.name}</h2>
-      <h3>Albums</h3>
-      <ArtistAlbumsList artist={artist} />
+      <section id="artist-albums" className="item-list">
+        <h3>Albums</h3>
+        <ArtistAlbumsList artist={artist} />
+      </section>
     </section>
   );
 }
