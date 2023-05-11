@@ -3,12 +3,13 @@ import { useContext, useEffect } from "react";
 import { AppContext } from "../Wrappers/AppContext";
 import Spotify from "../../util/Spotify";
 import AlbumTrackList from "./AlbumTrackList";
+import AlbumTitle from "./AlbumTitle";
 
 export default function AlbumDetailsPage() {
   const location = useLocation();
   const { state } = location;
   const { type } = state;
-  console.log(type);
+  console.log(state);
 
   const { parseArtists, parseAlbumTitle, albumIsSingleOrCompilation, setAlbumTracks } = useContext(AppContext);
 
@@ -35,20 +36,8 @@ export default function AlbumDetailsPage() {
     <section id="album-details">
       <div>
         <img src={type === "track" ? state.album.images[0].url : state.images[0].url} className="album-image" />
-        {type === "track" && (
-          <h2>
-            <span className="album-title">{state.album.name}</span>
-            <>{albumIsSingleOrCompilation(state.album)}</>
-          </h2>
-        )}
-        {type === "album" && (
-          <h2>
-            <span className="album-title">{state.name}</span>
-            <>{albumIsSingleOrCompilation(state)}</>
-          </h2>
-        )}
-        {/* {type === "a"}
-          <h2>{type === "track" ? state.album.name : state.name}</h2> */}
+        {type === "track" && <AlbumTitle album={state.album} elementType="h2" />}
+        {type === "album" && <AlbumTitle album={state} elementType="h2" />}
         <h3>{type === "track" ? parseArtists(state.album.artists) : parseArtists(state.artists)}</h3>
       </div>
       <AlbumTrackList type={type} state={state} />

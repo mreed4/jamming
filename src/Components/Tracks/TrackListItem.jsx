@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AppContext } from "../Wrappers/AppContext";
 import { Link } from "react-router-dom";
+import AlbumTitle from "../Albums/AlbumTitle";
 
 export default function TrackListItem({ track, itemType }) {
   const { parseArtists, parseTrackTitle, toKebabCase, albumIsSingleOrCompilation, placeholderImage } = useContext(AppContext);
@@ -35,11 +36,7 @@ export default function TrackListItem({ track, itemType }) {
       <div className="track-info">
         <h3>{parseTrackTitle(track.name)}</h3>
         <p className="">{parseArtists(track.artists, itemType)}</p>
-        <p className="italic album-name">
-          <Link to={`/album/${toKebabCase(track.album.artists[0].name)}/${toKebabCase(track.album.name)}`} state={track}>
-            {track.album.name} {albumIsSingleOrCompilation(track.album)}
-          </Link>
-        </p>
+        <AlbumTitle elementType="p" track={track} />
       </div>
       {/* {this.renderAction()} */}
     </div>

@@ -7,7 +7,9 @@ export default function ResultsPage() {
 
   return (
     <section id="results-page">
-      <h2 className="italic dim">Results for "{searchTermPersist}"</h2>
+      <span className="italic dim" id="query-reminder">
+        Results for "{searchTermPersist}"
+      </span>
       <nav id="results-nav">
         <ul>
           {resultsArray.length > 0 &&

@@ -79,7 +79,7 @@ function AppProvider({ children }) {
       return parts.map((part, i) => {
         const key = `${part}-${i}`;
         if (i === 0) {
-          return <span key={key}>{truncateString(part)}</span>;
+          return <span key={key}>{truncateString(part, 20)}</span>;
         } else {
           return (
             <span key={key} className="track-title-tags">
@@ -98,11 +98,15 @@ function AppProvider({ children }) {
       return parts.map((part, i) => {
         const key = `${part}-${i}`;
         if (i === 0) {
-          return <span key={key}>{truncateString(part, 22)}</span>;
+          return (
+            <span key={key} className="album-title-main">
+              {truncateString(part, 22)}
+            </span>
+          );
         } else {
           return (
-            <span key={key} className="album-title-tags-wrap">
-              <span className="album-title-tags">{truncateString(part.slice(0, -1), 22)}</span>
+            <span key={key} className="album-title-tags">
+              {truncateString(part.slice(0, -1), 22)}
             </span>
           );
         }
