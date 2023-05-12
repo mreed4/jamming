@@ -22,7 +22,7 @@ const Spotify = {
 
   search(term) {
     return Spotify.requestAccessToken().then((ACCESS_TOKEN) => {
-      const url = `https://api.spotify.com/v1/search?type=track,artist,album&q=${term}`;
+      const url = `https://api.spotify.com/v1/search?type=track,artist,album&market=us&q=${term}`;
       const headers = { Authorization: `Bearer ${ACCESS_TOKEN}` };
 
       return fetch(url, { headers })
@@ -58,7 +58,7 @@ const Spotify = {
 
   getArtistAlbums(artistId) {
     return Spotify.requestAccessToken().then((ACCESS_TOKEN) => {
-      const url = `https://api.spotify.com/v1/artists/${artistId}/albums`;
+      const url = `https://api.spotify.com/v1/artists/${artistId}/albums?market=us&limit=50`;
       const headers = { Authorization: `Bearer ${ACCESS_TOKEN}` };
 
       return fetch(url, { headers })
