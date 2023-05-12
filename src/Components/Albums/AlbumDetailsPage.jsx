@@ -9,7 +9,7 @@ export default function AlbumDetailsPage() {
   const location = useLocation();
   const { state } = location;
   const { type } = state;
-  console.log(state);
+  // console.log(state);
 
   const { parseArtists, parseAlbumTitle, albumIsSingleOrCompilation, setAlbumTracks } = useContext(AppContext);
 
