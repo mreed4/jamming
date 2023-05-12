@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import { Link } from "react-router-dom";
 import Spotify from "../../util/Spotify";
 
 const AppContext = createContext();
@@ -117,6 +118,13 @@ function AppProvider({ children }) {
 
   function parseArtists(artists, itemType = "track") {
     if (itemType === "track") {
+      return artists.map((artist) => {
+        return (
+          <Link key={artist.id} to={`/artist/${toKebabCase(artist.name)}`} state={artist}>
+            {artist.name}
+          </Link>
+        );
+      });
       return artists.map((artist) => {
         return (
           <span key={artist.id} className="artist-name">
