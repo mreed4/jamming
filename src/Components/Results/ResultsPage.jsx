@@ -7,9 +7,9 @@ export default function ResultsPage() {
 
   return (
     <section id="results-page">
-      <span className="italic dim" id="query-reminder">
+      <div className="italic dim" id="query-reminder">
         Results for "{searchTermPersist}"
-      </span>
+      </div>
       <nav id="results-nav">
         <ul>
           {resultsArray.length > 0 &&
@@ -24,9 +24,7 @@ export default function ResultsPage() {
             })}
         </ul>
       </nav>
-      <div id="item-lists">
-        <Outlet /> {/* See line 27 of App.jsx */}
-      </div>
+      <Outlet /> {/* See line 27 of App.jsx */}
     </section>
   );
 }

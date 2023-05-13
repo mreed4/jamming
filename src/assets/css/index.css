@@ -244,7 +244,7 @@ hr {
   opacity: 0.6;
 }
 
-.item-list:not(#tracks-list) > ol {
+.item-list:not(#tracks-list) {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -358,18 +358,23 @@ hr {
   margin-left: 0;
 }
 
-#tracks-list > ol li {
+#tracks-list li {
   padding: 1rem 0;
   border-bottom: 2px solid hsla(0, 11.1%, 8.8%, 0.15);
   border-bottom-color: hsla(51.8, 42.3%, 89.8%, 0.05);
 }
 
-#tracks-list > ol li:last-child {
+#tracks-list li:last-child {
   border-bottom-color: transparent;
 }
 
-#tracks-list > ol li:hover .track-item .album-image {
+#tracks-list li:hover .track-item .album-image {
   transform: scale(1.075);
+}
+
+#tracks-list > li:hover .track-item {
+  background-color: hsla(51.8, 42.3%, 89.8%, 0.1);
+  transform: scale(1.025);
 }
 
 .track-item .album-image {
@@ -393,11 +398,6 @@ hr {
   padding: 0.5rem;
   border-radius: 0.25rem;
   transition: background-color 75ms ease-in-out, transform 150ms ease-in-out;
-}
-
-#tracks-list > ol li:hover .track-item {
-  background-color: hsla(51.8, 42.3%, 89.8%, 0.1);
-  transform: scale(1.025);
 }
 
 .track-info {
