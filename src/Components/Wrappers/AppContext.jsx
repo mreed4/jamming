@@ -72,48 +72,12 @@ function AppProvider({ children }) {
     return str.slice(0, num) + "...";
   }
 
-  function parseTrackTitle(title, enableTags = true) {
-    // This will add a <span> tag around the first part of the title, and a <span> tag with a class of "track-title-tags" around the second part of the title.
-    // This is so that the second part of the title can be styled differently.
-    if (title.includes(" - ") && enableTags) {
-      let parts = title.split(" - ");
-      return parts.map((part, i) => {
-        const key = `${part}-${i}`;
-        if (i === 0) {
-          return <span key={key}>{truncateString(part, 20)}</span>;
-        } else {
-          return (
-            <span key={key} className="track-title-tags">
-              {truncateString(part, 20)}
-            </span>
-          );
-        }
-      });
-    }
-    return truncateString(title);
+  function parseTrackTitle(trackTitle, enableTags = true) {
+    return trackTitle;
   }
 
-  function parseAlbumTitle(title, enableTags = true) {
-    if (title.includes("(") && enableTags) {
-      let parts = title.split(" (");
-      return parts.map((part, i) => {
-        const key = `${part}-${i}`;
-        if (i === 0) {
-          return (
-            <span key={key} className="album-title-main">
-              {truncateString(part, 22)}
-            </span>
-          );
-        } else {
-          return (
-            <span key={key} className="album-title-tags">
-              {truncateString(part.slice(0, -1), 22)}
-            </span>
-          );
-        }
-      });
-    }
-    return truncateString(title, 22);
+  function parseAlbumTitle(albumTitle, enableTags = true, enableTruncate = true) {
+    return albumTitle;
   }
 
   function parseArtists(artists, itemType = "track") {
@@ -123,13 +87,6 @@ function AppProvider({ children }) {
           <Link key={artist.id} to={`/artist/${toKebabCase(artist.name)}`} state={artist}>
             {artist.name}
           </Link>
-        );
-      });
-      return artists.map((artist) => {
-        return (
-          <span key={artist.id} className="artist-name">
-            {artist.name}
-          </span>
         );
       });
     }
@@ -149,11 +106,9 @@ function AppProvider({ children }) {
   function toKebabCase(str) {
     return str
       .toLowerCase()
-      .replaceAll(" - ", " ")
-      .trim()
-      .split(" ")
-      .map((word) => word.replace(/[^a-z0-9]/gi, ""))
-      .join("-");
+      .replace(/[^a-z0-9]/gi, "-")
+      .replace(/-+/g, "-")
+      .replace(/^-|-$/g, "");
   }
 
   function albumIsSingleOrCompilation(album) {

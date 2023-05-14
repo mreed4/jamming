@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { AppContext } from "../Wrappers/AppContext";
 import AlbumTitle from "./AlbumTitle";
 
-export default function AlbumListItemContents({ album, itemType }) {
+export default function AlbumListItemContents({ album, itemType, elementType, showArtist = true }) {
   const { parseArtists, placeholderImage } = useContext(AppContext);
 
   const src = album.images[1]?.url ?? placeholderImage;
@@ -10,9 +10,9 @@ export default function AlbumListItemContents({ album, itemType }) {
   return (
     <div className="album-item list-image">
       <div className="album-info">
-        <AlbumTitle album={album} elementType="h2" />
+        <AlbumTitle album={album} elementType={elementType} />
         <div>
-          <span className={album.artists.length > 1 ? "multi-artist" : ""}>{parseArtists(album.artists, itemType)}</span>
+          {showArtist && <span className={album.artists.length > 1 ? "multi-artist" : ""}>{parseArtists(album.artists, itemType)}</span>}
           <span className="italic">{album.release_date.slice(0, 4)}</span>
         </div>
       </div>

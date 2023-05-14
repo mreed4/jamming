@@ -10,12 +10,10 @@ export default function Header() {
         <h1 id="site-title">
           <Link to="/">Audiophile</Link>
         </h1>
-        <div id="conditional-search-bar">
-          <SearchForm />
-        </div>
+        <SearchForm />
       </div>
       <hr />
-      <button onClick={() => navigate(-1)} className="back-button">
+      <button onClick={() => navigate(-1)} className="back-button" type="button">
         &larr; Back
       </button>
     </header>

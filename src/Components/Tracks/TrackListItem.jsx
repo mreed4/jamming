@@ -36,7 +36,7 @@ export default function TrackListItem({ track, itemType }) {
       <div className="track-info">
         <h3>{parseTrackTitle(track.name)}</h3>
         <p className="">{parseArtists(track.artists, itemType)}</p>
-        <AlbumTitle elementType="p" track={track} />
+        <AlbumTitle track={track} elementType="p" />
       </div>
       {/* {this.renderAction()} */}
     </div>

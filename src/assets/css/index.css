@@ -15,6 +15,7 @@
   background-attachment: fixed;
   transition: background-color 150ms ease-in-out, color 300ms ease-in-out;
 
+  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -37,9 +38,9 @@ body:has(#loading-page) {
   overflow: hidden;
 }
 
-body:has(#search-page) #conditional-search-bar,
+body:has(#search-page) header .conditional-search,
 body:has(#search-page) .back-button,
-body:has(#loading-page) #conditional-search-bar,
+body:has(#loading-page) header .conditional-search,
 body:has(#loading-page) .back-button,
 body:has(#results-page) .back-button {
   display: none;
@@ -291,6 +292,7 @@ hr {
 }
 
 #albums-list .album-item .album-info {
+  --album-background-filter: blur(10px) brightness(125%) saturate(0%);
   margin: 0;
   width: 300px;
   height: 300px;
@@ -303,7 +305,8 @@ hr {
   align-items: flex-start;
   background-color: hsla(0, 11.1%, 8.8%, 0.95);
   /* background-color: hsla(141.2, 72.9%, 32%, 0.65); */
-  backdrop-filter: blur(10px) brightness(125%) saturate(0%);
+  -webkit-backdrop-filter: var(--album-background-filter);
+  backdrop-filter: var(--album-background-filter);
   padding: 1rem;
   font-size: 1.75rem;
   color: #f0edda;
