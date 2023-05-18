@@ -12,7 +12,7 @@ export default function AlbumListItemContents({ album, itemType, elementType, sh
       <div className="album-info">
         <AlbumTitle album={album} elementType={elementType} />
         <div>
-          {showArtist && <span className={album.artists.length > 1 ? "multi-artist" : ""}>{parseArtists(album.artists, itemType)}</span>}
+          {showArtist && <span className={album.artists.length > 1 ? "multi-artist" : ""}>{parseArtists(album.artists)}</span>}
           <span className="italic">{album.release_date.slice(0, 4)}</span>
         </div>
       </div>

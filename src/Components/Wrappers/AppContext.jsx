@@ -80,27 +80,8 @@ function AppProvider({ children }) {
     return albumTitle;
   }
 
-  function parseArtists(artists, itemType = "track") {
-    if (itemType === "track") {
-      return artists.map((artist) => {
-        return (
-          <Link key={artist.id} to={`/artist/${toKebabCase(artist.name)}`} state={artist}>
-            {artist.name}
-          </Link>
-        );
-      });
-    }
-
-    if (itemType === "album") {
-      if (artists.length > 1) {
-        return (
-          <>
-            <span>{artists[0].name}</span> <span className="artist-count">+{artists.length - 1}</span>
-          </>
-        );
-      }
-      return <>{artists[0].name}</>;
-    }
+  function parseArtists(artists) {
+    return <>{artists[0].name}</>;
   }
 
   function toKebabCase(str) {
