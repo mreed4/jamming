@@ -251,7 +251,7 @@ hr {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .album-track-list {
@@ -283,15 +283,15 @@ hr {
   margin-left: 0;
 }
 
-#albums-list .album-item {
+.albums-list .album-item {
   transition: transform 150ms ease-in-out;
 }
 
-#albums-list .album-item:hover {
+.albums-list .album-item:hover {
   transform: scale(1.075);
 }
 
-#albums-list .album-item .album-info {
+.albums-list .album-item .album-info {
   --album-background-filter: blur(10px) brightness(125%) saturate(0%);
   margin: 0;
   width: 300px;
@@ -315,30 +315,31 @@ hr {
   border: 0;
 }
 
-#albums-list .album-item:hover .album-info {
+.albums-list .album-item:hover .album-info {
   opacity: 1;
 }
 
-#albums-list .album-item .album-info > div {
+.albums-list .album-item .album-info > div {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: flex-start;
 }
 
-#albums-list .album-title {
+.albums-list .album-title {
   margin: 0;
   font-weight: 300;
+  font-size: 2rem;
 }
 
-#albums-list .multi-artist {
+.albums-list .multi-artist {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
 }
 
-#albums-list .artist-count {
+.albums-list .artist-count {
   margin-left: 0.75rem;
   font-size: 1rem;
   color: #191414;
@@ -347,8 +348,8 @@ hr {
   border-radius: 0.25rem;
 }
 
-#albums-list .album-type,
-#albums-list .album-title-tags {
+.albums-list .album-type,
+.albums-list .album-title-tags {
   font-size: 0.85rem;
   padding: 0.125rem 0.25rem;
   border: 1px solid hsla(51.8, 42.3%, 89.8%, 0.25);
@@ -356,8 +357,8 @@ hr {
   font-style: normal;
 }
 
-#albums-list .album-type,
-#albums-list .album-title-tags {
+.albums-list .album-type,
+.albums-list .album-title-tags {
   margin-left: 0;
 }
 
