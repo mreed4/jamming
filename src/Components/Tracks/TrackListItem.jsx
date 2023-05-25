@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import AlbumTitle from "../Albums/AlbumTitle";
 
 export default function TrackListItem({ track, itemType }) {
-  const { parseArtists, parseTrackTitle, toKebabCase, albumIsSingleOrCompilation, placeholderImage } = useContext(AppContext);
+  const { parseArtists, parseTrackTitle, toKebabCase, albumType, placeholderImage } = useContext(AppContext);
 
   const src = track.album.images[1]?.url ?? placeholderImage;
 

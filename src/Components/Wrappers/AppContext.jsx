@@ -92,7 +92,7 @@ function AppProvider({ children }) {
       .replace(/^-|-$/g, "");
   }
 
-  function albumIsSingleOrCompilation(album) {
+  function albumType(album) {
     if (album.album_type === "single" || album.album_type === "compilation") {
       return <span className="album-type">{toProperCase(album.album_type)}</span>;
     }
@@ -149,7 +149,7 @@ function AppProvider({ children }) {
     parseAlbumTitle,
     parseArtists,
     toKebabCase,
-    albumIsSingleOrCompilation,
+    albumType,
     toProperCase,
     addLeadingZero,
     truncateString,
