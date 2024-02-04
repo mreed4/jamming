@@ -2,6 +2,8 @@ import { createContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Spotify from "../../util/Spotify";
 
+const netlify = "/.netlify/functions";
+
 const AppContext = createContext();
 
 function AppProvider({ children }) {
