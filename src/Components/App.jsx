@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Route, Routes, Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 import { AppContext } from "./Wrappers/AppContext";
 import ScrollToTop from "./Wrappers/ScrollToTop";
@@ -13,8 +13,20 @@ import AlbumDetailsPage from "./Albums/AlbumDetailsPage";
 import ArtistDetailsPage from "./Artists/ArtistDetailsPage";
 import Playlist from "./Playlist";
 
+const netlify = "/.netlify/functions";
+
 export default function App() {
   const { searchResults, resultsArray } = useContext(AppContext);
+
+  async function getAccessToken() {
+    const response = await fetch(`${netlify}/requestAccessToken`);
+    const token = await response.json();
+    return token;
+  }
+
+  useEffect(() => {
+    getAccessToken();
+  }, []);
 
   return (
     <Router>

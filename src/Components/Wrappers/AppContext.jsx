@@ -53,14 +53,20 @@ function AppProvider({ children }) {
     setSearchTerm(e.target.value);
   }
 
+  async function getSearchResults() {
+    const response = await fetch(`${netlify}/search?term=${searchTerm}`);
+    const data = await response.json();
+    return data;
+  }
+
   function searchSpotify() {
-    Spotify.search(searchTerm).then((data) => {
-      console.log(data);
+    getSearchResults().then((data) => {
       setSearchResults(data);
     });
-    setSearchTermPersist(searchTerm);
-    setSearchTerm("");
-    setSearchResults({});
+
+    setSearchTermPersist(searchTerm); // This is used to persist the search term in the DOM
+    setSearchTerm(""); // This is used to clear the search term in the DOM
+    setSearchResults({}); // This is used to clear the search results in the DOM
   }
 
   function getClassName({ isActive }) {
