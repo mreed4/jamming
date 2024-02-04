@@ -11,7 +11,7 @@ export default function AlbumDetailsPage() {
   const { type } = state;
   // console.log(state);
 
-  const { parseArtists, parseAlbumTitle, albumIsSingleOrCompilation, setAlbumTracks } = useContext(AppContext);
+  const { parseArtists, parseAlbumTitle, albumType, setAlbumTracks } = useContext(AppContext);
 
   useEffect(() => {
     setAlbumTracks([]);

@@ -15,7 +15,8 @@ export default function ArtistDetailsPage() {
     if (!artist) return;
     setArtistAlbums([]);
     Spotify.getArtistAlbums(artist.id).then((data) => {
-      setArtistAlbums(data.items);
+      console.log(data.items.sort((a, b) => b.release_date - a.release_date));
+      setArtistAlbums(data.items.reverse());
       // console.log(artistAlbums);
     });
   }, []);
@@ -25,7 +26,13 @@ export default function ArtistDetailsPage() {
       <h2>{artist.name}</h2>
       <section id="artist-albums" className="item-list">
         <h3>Albums</h3>
-        <ArtistAlbumsList artist={artist} />
+        <ArtistAlbumsList artist={artist} albumType="album" isLive={false} isDeluxe={false} />
+        <h3>Deluxe Albums</h3>
+        <ArtistAlbumsList artist={artist} albumType="album" isLive={false} isDeluxe={true} />
+        <h3>Live Albums</h3>
+        <ArtistAlbumsList artist={artist} albumType="album" isLive={true} isDeluxe={false} />
+        <h3>Singles</h3>
+        <ArtistAlbumsList artist={artist} albumType="single" />
       </section>
     </section>
   );

@@ -4,7 +4,7 @@ import AlbumListItem from "../Albums/AlbumListItem";
 
 export default function ItemLists({ items, itemTypes }) {
   return (
-    <ol id={`${itemTypes}-list`} className="item-list">
+    <ol id={`${itemTypes}-list`} className={`item-list ${itemTypes === "albums" ? "albums-list" : ""}`}>
       {items.map((item) => {
         const track = <TrackListItem track={item} itemType="track" />;
         const artist = <ArtistListItem artist={item} itemType="artist" />;

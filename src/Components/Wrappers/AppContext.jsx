@@ -2,6 +2,8 @@ import { createContext, useState } from "react";
 import { Link } from "react-router-dom";
 import Spotify from "../../util/Spotify";
 
+const netlify = "/.netlify/functions";
+
 const AppContext = createContext();
 
 function AppProvider({ children }) {
@@ -51,14 +53,20 @@ function AppProvider({ children }) {
     setSearchTerm(e.target.value);
   }
 
+  async function getSearchResults() {
+    const response = await fetch(`${netlify}/search?term=${searchTerm}`);
+    const data = await response.json();
+    return data;
+  }
+
   function searchSpotify() {
-    Spotify.search(searchTerm).then((data) => {
-      console.log(data);
+    getSearchResults().then((data) => {
       setSearchResults(data);
     });
-    setSearchTermPersist(searchTerm);
-    setSearchTerm("");
-    setSearchResults({});
+
+    setSearchTermPersist(searchTerm); // This is used to persist the search term in the DOM
+    setSearchTerm(""); // This is used to clear the search term in the DOM
+    setSearchResults({}); // This is used to clear the search results in the DOM
   }
 
   function getClassName({ isActive }) {
@@ -92,7 +100,7 @@ function AppProvider({ children }) {
       .replace(/^-|-$/g, "");
   }
 
-  function albumIsSingleOrCompilation(album) {
+  function albumType(album) {
     if (album.album_type === "single" || album.album_type === "compilation") {
       return <span className="album-type">{toProperCase(album.album_type)}</span>;
     }
@@ -149,7 +157,7 @@ function AppProvider({ children }) {
     parseAlbumTitle,
     parseArtists,
     toKebabCase,
-    albumIsSingleOrCompilation,
+    albumType,
     toProperCase,
     addLeadingZero,
     truncateString,

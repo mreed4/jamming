@@ -1,6 +1,3 @@
-import config from "./config";
-const { key: API_KEY, secret: SECRET } = config;
-
 const Spotify = {
   requestAccessToken() {
     const url = "https://accounts.spotify.com/api/token";
